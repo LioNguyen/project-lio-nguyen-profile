@@ -46,16 +46,16 @@ export const Navbar: FC<NavbarProps> = (props) => {
       name: "Qualification",
       href: "#qualification",
     },
-    {
-      icon: <RxImage size={20} />,
-      name: "Portfolio",
-      href: "#portfolio",
-    },
-    {
-      icon: <VscSend size={20} />,
-      name: "Contact",
-      href: "#contact",
-    },
+    // {
+    //   icon: <RxImage size={20} />,
+    //   name: "Portfolio",
+    //   href: "#portfolio",
+    // },
+    // {
+    //   icon: <VscSend size={20} />,
+    //   name: "Contact",
+    //   href: "#contact",
+    // },
   ];
 
   return (
