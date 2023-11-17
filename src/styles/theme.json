@@ -1,0 +1,106 @@
+{
+  "breakpoints": {
+    "sm": "700px",
+    "md": "900px"
+  },
+  "colors": {
+    "default": {
+      "buttonBg": "rgba(0,0,0,0.75)",
+      "buttonBgHover": "rgba(0,0,0,0.8)",
+      "text": "#757575",
+      "title": "#333333",
+      "titleDark": "#000000"
+    }
+  },
+  "components": {
+    "Button": {
+      "variants": {
+        "solid": {
+          "bg": "default.buttonBg",
+          "color": "white",
+          "borderRadius": "16px",
+          "height": "60px",
+          "minWidth": "180px",
+          "_hover": {
+            "bg": "default.buttonBgHover"
+          }
+        }
+      }
+    },
+    "Container": {
+      "variants": {
+        "bottomModalLayout": {
+          "bg": "white",
+          "borderRadius": "16px 16px 0 0",
+          "boxShadow": "default.bottomModal",
+          "maxW": "100vw",
+          "padding": "0",
+          "zIndex": "1",
+          "position": "fixed",
+          "bottom": "0",
+          "left": "0",
+          "right": "0"
+        },
+        "navbar": {
+          "bg": "white",
+          "borderRadius": {
+            "base": "8px 8px 0 0",
+            "sm": "0 0 8px 8px"
+          },
+          "maxW": "100vw",
+          "padding": "0",
+          "position": "fixed",
+          "top": { "base": "unset", "sm": "0" },
+          "bottom": { "base": "0", "sm": "unset" },
+          "left": "0",
+          "right": "0",
+          "zIndex": "1"
+        },
+        "pageLayout": {
+          "height": { "base": "unset", "sm": "100vh" },
+          "minH": { "base": "unset", "sm": "700px" },
+          "maxH": { "base": "unset", "md": "1000px" },
+          "maxW": "100%",
+          "paddingBottom": { "base": "50px", "sm": "70px" },
+          "paddingTop": { "base": "20px", "sm": "70px" },
+          "position": "relative"
+        }
+      }
+    },
+    "Text": {
+      "variants": {
+        "title": {
+          "color": "default.titleDark",
+          "fontSize": { "base": "4xl", "sm": "5xl", "md": "6xl" },
+          "fontWeight": "bold"
+        },
+        "subtitle": {
+          "color": "default.title",
+          "fontSize": { "base": "xl", "md": "2xl" }
+        }
+      }
+    }
+  },
+  "shadows": {
+    "default": {
+      "bottomModal": "0 0px 5px 1px rgba(0, 0, 0, 0.25)"
+    }
+  },
+  "styles": {
+    "global": {
+      "*": {
+        "transition": "all 0.4s ease"
+      },
+      "html": {
+        "background": "white",
+        "color": "default.text",
+        "fontFamily": "'Poppins', sans-serif",
+        "scrollBehavior": "smooth"
+      },
+      "body": {
+        "margin": "auto",
+        "maxWidth": "container.lg"
+      }
+    }
+  }
+}
