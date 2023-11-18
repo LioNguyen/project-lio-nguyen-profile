@@ -1,4 +1,4 @@
-import { Utils } from "minimist-react-library";
+import { Utils } from "react-minimist-utils";
 
 export const SkillsBox = Utils.React.lazyLoad(
   () => import("./SkillsBox"),

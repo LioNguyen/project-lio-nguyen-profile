@@ -88,6 +88,7 @@ export const Timeline: FC<TimelineProps> = ({ className = "", ...props }) => {
       className={`timeline ${className}`}
       gap={0}
       alignItems="center"
+      padding="50px 0 100px"
       {...props}
     >
       {renderTimeline()}

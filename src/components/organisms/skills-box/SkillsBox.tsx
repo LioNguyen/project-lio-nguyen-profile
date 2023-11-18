@@ -1,5 +1,5 @@
 import { Box, BoxProps, Circle, Flex, Spacer, Text } from "@chakra-ui/react";
-import { Utils } from "minimist-react-library";
+import { Utils } from "react-minimist-utils";
 import { FC } from "react";
 
 interface SkillsBoxProps extends BoxProps {
@@ -34,6 +34,7 @@ export const SkillsBox: FC<SkillsBoxProps> = ({
           <Flex gap="5px">
             {new Array(10).fill("").map((_, dotIndex) => (
               <Circle
+                key={`circle-${dotIndex}}`}
                 size={{ base: "10px", sm: "15px" }}
                 bg={dotIndex <= item.rate - 1 ? "gray.700" : "gray.300"}
               />

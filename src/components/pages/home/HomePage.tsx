@@ -11,7 +11,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { Hooks } from "minimist-react-library";
+import { Hooks } from "react-minimist-utils";
 import { FC, useState } from "react";
 import { BiMouse } from "react-icons/bi";
 import { FaArrowDown } from "react-icons/fa6";
@@ -49,7 +49,13 @@ export const HomePage: FC<HomePageProps> = (props) => {
   const { scrollTo } = Hooks.Window.useScrollTo();
 
   return (
-    <Container id="home" variant="pageLayout" {...props}>
+    <Container
+      id="home"
+      variant="pageLayout"
+      height={{ base: "unset", sm: "100vh" }}
+      minH={{ base: "unset", sm: "700px" }}
+      {...props}
+    >
       {/* Content section */}
       <Stack
         className="home__content"
@@ -88,8 +94,8 @@ export const HomePage: FC<HomePageProps> = (props) => {
             </Text>
           </Stack>
           <Text color="default.text" fontSize={{ base: "sm", sm: "md" }}>
-            I'm an software engineer based in Ho Chi Minh city, and I am very
-            passionate and dedicated to my work.
+            Coding is not just a skill. It's my avenue for expressing creativity
+            and turning ideas into reality.
           </Text>
 
           <Button

@@ -1,14 +1,15 @@
+import LogoLink from "@/assets/images/logo-lio-full-1800.png";
 import { BottomNavbar } from "@/components";
 import {
   Center,
   Container,
   ContainerProps,
   Flex,
+  Image,
   Spacer,
-  Text,
 } from "@chakra-ui/react";
-import { Hooks } from "minimist-react-library";
-import { FC } from "react";
+import { Hooks } from "react-minimist-utils";
+import { FC, useState } from "react";
 import { CgMenuMotion, CgProfile } from "react-icons/cg";
 import { HiOutlineBriefcase } from "react-icons/hi";
 import { IoDocumentTextOutline } from "react-icons/io5";
@@ -21,6 +22,7 @@ import { RxImage } from "react-icons/rx";
 interface NavbarProps extends ContainerProps {}
 
 export const Navbar: FC<NavbarProps> = (props) => {
+  const [currentHash, setCurrentHash] = useState(() => window.location.hash);
   const [isShowBottomNavbar, toggleBottomNavbar] = Hooks.Data.useToggle(false);
 
   const isScrolling = Hooks.Window.useScrolling();
@@ -63,8 +65,6 @@ export const Navbar: FC<NavbarProps> = (props) => {
       id="navbar"
       variant="navbar"
       boxShadow={isScrolling ? "default.bottomModal" : "none"}
-      // backdropFilter={{ base: "blur(15px)", sm: "unset" }}
-      // bg={{ base: "none", sm: "white" }}
       {...props}
     >
       {/* Content section */}
@@ -77,7 +77,11 @@ export const Navbar: FC<NavbarProps> = (props) => {
       >
         <Center className="navbar__left" as="a" href="#home" aria-label="home">
           {/* <PiHouse size={20} /> */}
-          <Text>Nghi</Text>
+          <Image
+            src={LogoLink}
+            alt="logo"
+            width={{ base: "80px", sm: isScrolling ? "100px" : "250px" }}
+          />
         </Center>
 
         <Spacer className="navbar__spacer" />
@@ -93,17 +97,40 @@ export const Navbar: FC<NavbarProps> = (props) => {
         <Flex
           className="navbar__right"
           display={{ base: "none", sm: "flex" }}
+          alignItems="center"
           gap={8}
         >
           {navItems.map((item) => (
-            <Text
+            <Center
               key={item.name}
-              className="navbar__item"
               as="a"
               href={item.href}
+              className="navbar__item"
+              borderBottom={currentHash === item.href ? "1px solid" : "none"}
+              borderBottomColor={
+                currentHash === item.href
+                  ? "default.titleDark"
+                  : "default.title"
+              }
+              color={
+                currentHash === item.href
+                  ? "default.titleDark"
+                  : "default.title"
+              }
+              opacity={currentHash === item.href ? 1 : 0.7}
+              _hover={{
+                color: "default.titleDark",
+                opacity: 1,
+                borderBottom: "1px solid",
+                borderBottomColor: "default.titleDark",
+
+                transition: "all 0.1s",
+              }}
+              height="40px"
+              onClick={() => setCurrentHash(item.href)}
             >
               {item.name}
-            </Text>
+            </Center>
           ))}
         </Flex>
       </Flex>

@@ -1,7 +1,7 @@
 import ProfileImage_2 from "@/assets/images/profile_2.jpeg";
 import { CV_DIRECT_URL, PROFILE_URL } from "@/constants";
 import { Box, Button, Container, Image, Stack, Text } from "@chakra-ui/react";
-import { Utils } from "minimist-react-library";
+import { Utils } from "react-minimist-utils";
 import { FC, HTMLAttributes } from "react";
 import { CgFileDocument } from "react-icons/cg";
 import { PiConfetti, PiMedal } from "react-icons/pi";
@@ -26,7 +26,7 @@ export const AboutPage: FC<AboutPageProps> = (props) => {
         >
           <Stack
             gap={6}
-            height={{ base: "fit-content", md: "400px" }}
+            height={{ base: "fit-content" }}
             direction={{ base: "column", md: "row" }}
             alignItems={{ base: "center", md: "flex-start" }}
             justifyContent={{ base: "flex-start", md: "space-around" }}
@@ -116,10 +116,14 @@ export const AboutPage: FC<AboutPageProps> = (props) => {
                 color="default.text"
                 fontSize={{ base: "md", sm: "lg", md: "xl" }}
               >
-                Coding is not just a skill, it's my avenue for expressing
-                creativity and turning ideas into reality. With 2+ years of
-                experience in ReactJS, JavaScript, HTML and CSS, I bring a
-                passion for clean, user-focused design to every project.
+                With a keen eye for design and a mastery of HTML, CSS, and
+                JavaScript, I specialize in transforming concepts into
+                responsive, interactive, and pixel-perfect websites and
+                applications.
+                <br />
+                <br />I am a self-motivated, hard-working, and goal-oriented
+                individual who enjoys working in a team environment. I am a fast
+                learner and I am always looking for new challenges.
               </Text>
               <Button
                 onClick={() => Utils.Data.downloadFile(CV_DIRECT_URL)}

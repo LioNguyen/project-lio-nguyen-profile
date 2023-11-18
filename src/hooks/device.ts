@@ -1,4 +1,4 @@
-import { Hooks } from "minimist-react-library";
+import { Hooks } from "react-minimist-utils";
 import { useEffect, useState } from "react";
 
 export const useDevice = () => {
