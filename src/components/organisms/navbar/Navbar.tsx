@@ -9,7 +9,7 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import { Hooks } from "react-minimist-utils";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { CgMenuMotion, CgProfile } from "react-icons/cg";
 import { HiOutlineBriefcase } from "react-icons/hi";
 import { IoDocumentTextOutline } from "react-icons/io5";
@@ -22,10 +22,9 @@ import { RxImage } from "react-icons/rx";
 interface NavbarProps extends ContainerProps {}
 
 export const Navbar: FC<NavbarProps> = (props) => {
-  const [currentHash, setCurrentHash] = useState(() => window.location.hash);
-  const [isShowBottomNavbar, toggleBottomNavbar] = Hooks.Data.useToggle(false);
-
-  const isScrolling = Hooks.Window.useScrolling();
+  const { useScrolling, useToggle } = Hooks;
+  const [isShowBottomNavbar, toggleBottomNavbar] = useToggle(false);
+  const isScrolling = useScrolling();
 
   const navItems = [
     {
@@ -80,7 +79,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
           <Image
             src={LogoLink}
             alt="logo"
-            width={{ base: "80px", sm: isScrolling ? "100px" : "250px" }}
+            width={{ base: "60px", sm: isScrolling ? "100px" : "250px" }}
           />
         </Center>
 
@@ -106,28 +105,27 @@ export const Navbar: FC<NavbarProps> = (props) => {
               as="a"
               href={item.href}
               className="navbar__item"
-              borderBottom={currentHash === item.href ? "1px solid" : "none"}
-              borderBottomColor={
-                currentHash === item.href
-                  ? "default.titleDark"
-                  : "default.title"
-              }
-              color={
-                currentHash === item.href
-                  ? "default.titleDark"
-                  : "default.title"
-              }
-              opacity={currentHash === item.href ? 1 : 0.7}
+              // borderBottom={currentHash === item.href ? "1px solid" : "none"}
+              // borderBottomColor={
+              //   currentHash === item.href
+              //     ? "default.titleDark"
+              //     : "default.title"
+              // }
+              // color={
+              //   currentHash === item.href
+              //     ? "default.titleDark"
+              //     : "default.title"
+              // }
+              // opacity={currentHash === item.href ? 1 : 0.7}
+              color="default.title"
               _hover={{
                 color: "default.titleDark",
                 opacity: 1,
                 borderBottom: "1px solid",
                 borderBottomColor: "default.titleDark",
-
-                transition: "all 0.1s",
               }}
               height="40px"
-              onClick={() => setCurrentHash(item.href)}
+              transition={"all 0.1s"}
             >
               {item.name}
             </Center>

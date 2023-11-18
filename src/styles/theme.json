@@ -1,6 +1,6 @@
 {
   "breakpoints": {
-    "sm": "700px",
+    "sm": "750px",
     "md": "900px"
   },
   "colors": {
@@ -29,6 +29,11 @@
     },
     "Container": {
       "variants": {
+        "appLayout": {
+          "margin": "auto",
+          "maxW": "container.lg",
+          "paddingBottom": "120px"
+        },
         "bottomModalLayout": {
           "bg": "white",
           "borderRadius": "16px 16px 0 0",
@@ -57,9 +62,9 @@
           "zIndex": "1"
         },
         "pageLayout": {
-          "height": { "base": "unset", "md": "100vh" },
+          "height": { "base": "unset", "sm": "100vh" },
           "minH": { "base": "unset", "md": "700px" },
-          "maxH": { "base": "unset", "md": "1000px" },
+          "maxH": { "base": "unset" },
           "maxW": "100%",
           "paddingTop": { "base": "30px", "sm": "70px" },
           "paddingBottom": { "base": "50px", "sm": "70px" },
@@ -89,7 +94,7 @@
   "styles": {
     "global": {
       "*": {
-        "transition": "all 0.4s ease"
+        "transition": "all 0.4s"
       },
       "html": {
         "background": "white",

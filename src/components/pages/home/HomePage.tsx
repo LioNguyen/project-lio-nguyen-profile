@@ -16,6 +16,7 @@ import { FC, useState } from "react";
 import { BiMouse } from "react-icons/bi";
 import { FaArrowDown } from "react-icons/fa6";
 import { PiPaperPlaneTilt } from "react-icons/pi";
+import { SocialWidget } from "@/components";
 
 interface HomePageProps extends ContainerProps {}
 
@@ -64,7 +65,9 @@ export const HomePage: FC<HomePageProps> = (props) => {
         position="relative"
         alignItems="center"
         flexDirection={{ base: "column-reverse", sm: "row" }}
+        paddingLeft={{ base: 0, sm: 20 }}
       >
+        <SocialWidget />
         {/* Left side */}
         <Stack
           className="home__left"
@@ -100,7 +103,7 @@ export const HomePage: FC<HomePageProps> = (props) => {
 
           <Button
             as="a"
-            href="#contact"
+            href="#about"
             marginTop={{ base: 5, sm: 10 }}
             rightIcon={<PiPaperPlaneTilt color="white" size={25} />}
             transform={{ base: "scale(0.8)", sm: "none" }}
@@ -116,7 +119,7 @@ export const HomePage: FC<HomePageProps> = (props) => {
             display={isImageLoaded ? "block" : "none"}
             onLoad={() => setIsImageLoaded(true)}
             animation={profileAnimation}
-            boxSize={{ base: 250, sm: 350, md: 400 }}
+            boxSize={{ base: 150, sm: 320, md: 420 }}
             boxShadow="dark-lg"
             objectFit="cover"
             margin="auto"
@@ -142,7 +145,7 @@ export const HomePage: FC<HomePageProps> = (props) => {
             animation: arrowAnimation,
           },
         }}
-        onClick={() => scrollTo(800, 0)}
+        onClick={() => scrollTo(window.innerHeight || 1000, 0)}
       >
         <BiMouse size={50} /> <Text>Scroll Down</Text>{" "}
         <FaArrowDown className="arrow-down" size={20} />

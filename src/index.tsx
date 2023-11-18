@@ -15,7 +15,7 @@ export const theme = extendTheme({
   },
 });
 
-console.log("🚀 @log ~ file: index.tsx:18 ~ theme:", theme);
+// console.log("🚀 @log ~ file: index.tsx:18 ~ theme:", theme);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

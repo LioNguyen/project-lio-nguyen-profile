@@ -74,7 +74,7 @@ export const SkillsPage: FC<SkillsPageProps> = ({ children, ...props }) => {
             height={{ base: "fit-content", md: "400px" }}
             direction={{ base: "column", md: "row" }}
             alignItems={{ base: "center", md: "flex-start" }}
-            justifyContent={{ base: "flex-start", md: "space-around" }}
+            justifyContent={{ base: "flex-start", md: "space-between" }}
             textAlign={{ base: "center", md: "left" }}
           >
             <SkillsBox boxTitle="Frontend" data={frontendData} />

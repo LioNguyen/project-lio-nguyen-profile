@@ -1,28 +1,17 @@
-import { useDevice } from "@/hooks";
 import { Center, Container, ContainerProps } from "@chakra-ui/react";
-import { Hooks } from "react-minimist-utils";
 import { FC } from "react";
 import { IoArrowUpOutline } from "react-icons/io5";
+import { Hooks } from "react-minimist-utils";
 
 interface AppContainerProps extends ContainerProps {}
 
-export const AppContainer: FC<AppContainerProps> = ({
-  className = "",
-  children,
-  ...props
-}) => {
+export const AppContainer: FC<AppContainerProps> = ({ children, ...props }) => {
   const { useScrolling } = Hooks.Window;
 
-  const { isMobile, isTablet } = useDevice();
   const isScrolling = useScrolling();
 
   return (
-    <Container
-      className={`app-container ${className}`}
-      margin={"auto"}
-      maxW={"container.lg"}
-      {...props}
-    >
+    <Container id="app-container" variant="appLayout" {...props}>
       {children}
       <Center
         as="a"
