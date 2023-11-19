@@ -32,7 +32,7 @@ export const SocialWidget: FC<SocialWidgetProps> = (props) => {
     <Stack
       id="social-widget"
       justifyContent="center"
-      gap="25px"
+      gap="30px"
       position="absolute"
       left={0}
       top={0}
