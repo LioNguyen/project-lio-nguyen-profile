@@ -59,11 +59,19 @@ export const Navbar: FC<NavbarProps> = (props) => {
     // },
   ];
 
+  // useEffect(() => {
+  //   const currentHash = window.location.hash;
+  //   const element = document.querySelector(currentHash);
+  //   if (element) {
+  //     element.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, []);
+
   return (
     <Container
       id="navbar"
       variant="navbar"
-      boxShadow={isScrolling ? "default.bottomModal" : "none"}
+      boxShadow={isScrolling ? "default.navbar" : "none"}
       {...props}
     >
       {/* Content section */}

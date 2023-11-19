@@ -5,6 +5,7 @@
   },
   "colors": {
     "default": {
+      "body": "#FAFAFA",
       "buttonBg": "rgba(0,0,0,0.75)",
       "buttonBgHover": "rgba(0,0,0,0.8)",
       "text": "#757575",
@@ -35,7 +36,7 @@
           "paddingBottom": "120px"
         },
         "bottomModalLayout": {
-          "bg": "white",
+          "bg": "default.body",
           "borderRadius": "16px 16px 0 0",
           "boxShadow": "default.bottomModal",
           "maxW": "100vw",
@@ -46,8 +47,16 @@
           "left": "0",
           "right": "0"
         },
-        "navbar": {
+        "footer": {
           "bg": "white",
+          "borderRadius": "8px 8px 0 0",
+          "boxShadow": "default.footer",
+          "maxW": "100vw",
+          "paddingTop": "20px",
+          "paddingBottom": { "base": "80px", "sm": "40px" }
+        },
+        "navbar": {
+          "bg": "default.body",
           "borderRadius": {
             "base": "8px 8px 0 0",
             "sm": "0 0 8px 8px"
@@ -62,8 +71,7 @@
           "zIndex": "1"
         },
         "pageLayout": {
-          "height": { "base": "unset", "sm": "100vh" },
-          "minH": { "base": "unset", "md": "700px" },
+          "minH": { "base": "unset", "sm": "100vh" },
           "maxH": { "base": "unset" },
           "maxW": "100%",
           "paddingTop": { "base": "30px", "sm": "70px" },
@@ -88,7 +96,9 @@
   },
   "shadows": {
     "default": {
-      "bottomModal": "0 0px 5px 1px rgba(0, 0, 0, 0.25)"
+      "bottomModal": "0 0 7px 1px rgba(0, 0, 0, 0.25)",
+      "navbar": "0 0 5px 0 rgba(0, 0, 0, 0.15)",
+      "footer": "0 0 5px 1px rgba(0, 0, 0, 0.2)"
     }
   },
   "styles": {
@@ -97,14 +107,14 @@
         "transition": "all 0.4s"
       },
       "html": {
-        "background": "white",
+        "bg": "default.body",
         "color": "default.text",
         "fontFamily": "'Poppins', sans-serif",
         "scrollBehavior": "smooth"
       },
       "body": {
-        "margin": "auto",
-        "maxWidth": "container.lg"
+        "bg": "default.body",
+        "margin": "auto"
       }
     }
   }

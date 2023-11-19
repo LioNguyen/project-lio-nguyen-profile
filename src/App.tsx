@@ -2,6 +2,7 @@ import {
   AboutPage,
   AppContainer,
   ContactPage,
+  Footer,
   HomePage,
   Navbar,
   QualificationPage,
@@ -10,14 +11,17 @@ import {
 
 function App() {
   return (
-    <AppContainer>
+    <>
       <Navbar />
-      <HomePage />
-      <AboutPage />
-      <SkillsPage />
-      <QualificationPage />
-      {/* <ContactPage /> */}
-    </AppContainer>
+      <AppContainer>
+        <HomePage />
+        <AboutPage />
+        <SkillsPage />
+        <QualificationPage />
+        {/* <ContactPage /> */}
+      </AppContainer>
+      <Footer />
+    </>
   );
 }
 
