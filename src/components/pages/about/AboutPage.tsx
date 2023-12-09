@@ -1,5 +1,5 @@
 import ProfileImage_2 from "@/assets/images/profile_2.jpeg";
-import { CV_DIRECT_URL, PROFILE_URL } from "@/constants";
+import { CV_URL, PROFILE_URL } from "@/constants";
 import { Box, Button, Container, Image, Stack, Text } from "@chakra-ui/react";
 import { Utils } from "react-minimist-utils";
 import { FC, HTMLAttributes } from "react";
@@ -126,7 +126,7 @@ export const AboutPage: FC<AboutPageProps> = (props) => {
                 learner and I am always looking for new challenges.
               </Text>
               <Button
-                onClick={() => Utils.Data.downloadFile(CV_DIRECT_URL)}
+                onClick={() => Utils.Data.downloadFile(CV_URL)}
                 rightIcon={<CgFileDocument color="white" size={25} />}
                 transform={{ base: "scale(0.8)", sm: "none" }}
                 transformOrigin="center"
