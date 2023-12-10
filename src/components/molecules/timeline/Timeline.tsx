@@ -13,17 +13,17 @@ export const Timeline: FC<TimelineProps> = ({ className = "", ...props }) => {
     {
       title: "Fresher Frontend Software Engineer",
       subtitle: "EVE HUMAN RESOURCES COMPANY LIMITED",
-      time: "2021 - 2022",
+      time: "2020 - 2022",
     },
     {
       title: "Freelance Frontend Software Engineer",
       subtitle: "JOBHOPIN",
-      time: "2022",
+      time: "2021 - 2022",
     },
     {
       title: "General Accountant",
       subtitle: "ITL, FRAM^ & Other companies",
-      time: "2017 - 2021",
+      time: "2017 - 2020",
     },
   ];
 
