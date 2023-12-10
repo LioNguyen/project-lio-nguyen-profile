@@ -79,7 +79,7 @@ export const AboutPage: FC<AboutPageProps> = (props) => {
                       color="default.text"
                       fontSize={{ base: "xs", sm: "sm", md: "md" }}
                     >
-                      2+ Years
+                      3+ Years
                     </Text>
                   </Stack>
                 </Box>
@@ -107,7 +107,7 @@ export const AboutPage: FC<AboutPageProps> = (props) => {
                       color="default.text"
                       fontSize={{ base: "xs", sm: "sm", md: "md" }}
                     >
-                      10+ Projects
+                      5+ Projects
                     </Text>
                   </Stack>
                 </Box>
