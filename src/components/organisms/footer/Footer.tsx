@@ -1,4 +1,5 @@
-import { useDevice } from "@/hooks";
+import * as S from "./Footer.styles";
+
 import {
   Container,
   ContainerProps,
@@ -8,75 +9,51 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { FC } from "react";
-import { ImFacebook2, ImInstagram } from "react-icons/im";
-import { SiLinkedin } from "react-icons/si";
+import { useNavigate } from "react-router-dom";
+
+import { navItems, socialItems } from "@/constants";
+import { useDevice } from "@/hooks";
 
 interface FooterProps extends ContainerProps {}
 
 export const Footer: FC<FooterProps> = (props) => {
   const { isMobile } = useDevice();
-
-  const navItems = [
-    {
-      name: "Home",
-      href: "#home",
-    },
-    {
-      name: "About",
-      href: "#about",
-    },
-    {
-      name: "Skills",
-      href: "#skills",
-    },
-    {
-      name: "Qualification",
-      href: "#qualification",
-    },
-  ];
-
-  const socialItems = [
-    {
-      name: "LinkedIn",
-      icon: <SiLinkedin size={isMobile ? 20 : 25} />,
-      href: "https://www.linkedin.com/in/lio-nguyen/",
-    },
-    {
-      name: "Facebook",
-      icon: <ImFacebook2 size={isMobile ? 20 : 25} />,
-      href: "https://www.facebook.com/nghinguyen9994",
-    },
-    {
-      name: "Instagram",
-      icon: <ImInstagram size={isMobile ? 20 : 25} />,
-      href: "https://www.instagram.com/nguyenthanhnghi9994/",
-    },
-  ];
+  const navigate = useNavigate();
 
   return (
-    <Container id="footer" variant="footer" {...props}>
-      <Stack alignItems="center" gap="20px">
+    <S.Wrapper id="footer" variant="footer" {...props}>
+      <S.FooterContainer alignItems="center" gap="20px">
         <Text variant="title">Lio</Text>
-        <HStack gap="20px">
+        <S.FooterRow>
           {navItems.map((item) => (
-            <Text key={item.name} as="a" href={item.href}>
-              {item.name}
-            </Text>
-          ))}
-        </HStack>
-        <HStack gap="20px">
-          {socialItems.map((item) => (
-            <Link
+            <Text
               key={item.name}
               as="a"
-              href={item.href}
-              isExternal
-              aria-label={item.name}
+              onClick={() => navigate(`/${item.name}`)}
+              cursor={"pointer"}
             >
-              {item.icon}
-            </Link>
+              {item.title}
+            </Text>
           ))}
-        </HStack>
+        </S.FooterRow>
+        <S.FooterRow>
+          {socialItems.map((item) => {
+            const Icon = item.icon;
+
+            if (!item.showFooter) return;
+            return (
+              <Link
+                key={item.name}
+                as="a"
+                href={item.href}
+                isExternal
+                aria-label={item.name}
+              >
+                <Icon size={isMobile ? 20 : 25} />
+              </Link>
+            );
+          })}
+        </S.FooterRow>
         <Text
           marginTop="30px"
           textAlign="center"
@@ -86,7 +63,7 @@ export const Footer: FC<FooterProps> = (props) => {
           Copyright © {new Date().getFullYear()} by Lio Nguyen. All rights
           reserved.
         </Text>
-      </Stack>
-    </Container>
+      </S.FooterContainer>
+    </S.Wrapper>
   );
 };

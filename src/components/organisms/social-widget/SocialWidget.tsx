@@ -1,32 +1,13 @@
-import { useDevice } from "@/hooks";
 import { Link, Stack, StackProps } from "@chakra-ui/react";
 import { FC } from "react";
-import { CgNpm } from "react-icons/cg";
-import { FaLinkedin } from "react-icons/fa";
-import { FiGithub } from "react-icons/fi";
+
+import { socialItems } from "@/constants";
+import { useDevice } from "@/hooks";
 
 interface SocialWidgetProps extends StackProps {}
 
 export const SocialWidget: FC<SocialWidgetProps> = (props) => {
   const { isMobile } = useDevice();
-
-  const socialItems = [
-    {
-      name: "LinkedIn",
-      icon: <FaLinkedin size={isMobile ? 20 : 25} />,
-      href: "https://www.linkedin.com/in/lio-nguyen/",
-    },
-    {
-      name: "Github",
-      icon: <FiGithub size={isMobile ? 20 : 25} />,
-      href: "https://github.com/LioNguyen",
-    },
-    {
-      name: "Npm",
-      icon: <CgNpm size={isMobile ? 20 : 25} />,
-      href: "https://www.npmjs.com/~lionguyen",
-    },
-  ];
 
   return (
     <Stack
@@ -39,17 +20,22 @@ export const SocialWidget: FC<SocialWidgetProps> = (props) => {
       bottom={{ base: "70%", sm: 0 }}
       {...props}
     >
-      {socialItems.map((item) => (
-        <Link
-          key={item.name}
-          className="social-widget__item"
-          href={item.href}
-          isExternal
-          aria-label={item.name}
-        >
-          {item.icon}
-        </Link>
-      ))}
+      {socialItems.map((item) => {
+        const Icon = item.icon;
+
+        if (!item.showHome) return;
+        return (
+          <Link
+            key={item.name}
+            className="social-widget__item"
+            href={item.href}
+            isExternal
+            aria-label={item.name}
+          >
+            <Icon size={isMobile ? 20 : 25} />
+          </Link>
+        );
+      })}
     </Stack>
   );
 };

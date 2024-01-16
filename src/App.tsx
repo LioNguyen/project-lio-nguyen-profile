@@ -1,27 +1,26 @@
 import {
   AboutPage,
   AppContainer,
-  ContactPage,
   Footer,
   HomePage,
+  Intro,
   Navbar,
-  QualificationPage,
-  SkillsPage,
 } from "@/components";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <BrowserRouter basename="/">
       <Navbar />
       <AppContainer>
-        <HomePage />
-        <AboutPage />
-        <SkillsPage />
-        <QualificationPage />
-        {/* <ContactPage /> */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
       </AppContainer>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 

@@ -1,6 +1,9 @@
-import { CgProfile } from "react-icons/cg";
+import { CgNpm, CgProfile } from "react-icons/cg";
+import { FaLinkedin } from "react-icons/fa";
 import { FaRegFileLines } from "react-icons/fa6";
+import { FiGithub } from "react-icons/fi";
 import { HiOutlineBriefcase } from "react-icons/hi";
+import { ImFacebook2, ImInstagram } from "react-icons/im";
 import { TbSmartHome } from "react-icons/tb";
 
 export const CV_URL =
@@ -18,24 +21,28 @@ export const HAND_ICON_URL =
 export const navItems = [
   {
     icon: TbSmartHome,
-    name: "Home",
+    name: "home",
+    title: "Home",
     href: "#home",
   },
   {
     icon: CgProfile,
-    name: "About",
+    name: "about",
+    title: "About",
     href: "#about",
   },
-  {
-    icon: FaRegFileLines,
-    name: "Skills",
-    href: "#skills",
-  },
-  {
-    icon: HiOutlineBriefcase,
-    name: "Qualification",
-    href: "#qualification",
-  },
+  // {
+  //   icon: FaRegFileLines,
+  //   name: "skills",
+  //   title: "Skills",
+  //   href: "#skills",
+  // },
+  // {
+  //   icon: HiOutlineBriefcase,
+  //   name: "qualification",
+  //   title: "Qualification",
+  //   href: "#qualification",
+  // },
   // {
   //   icon: <RxImage size={20} />,
   //   name: "Portfolio",
@@ -46,4 +53,42 @@ export const navItems = [
   //   name: "Contact",
   //   href: "#contact",
   // },
+];
+
+export const socialItems = [
+  {
+    name: "LinkedIn",
+    icon: FaLinkedin,
+    href: "https://www.linkedin.com/in/lio-nguyen/",
+    showHome: true,
+    showFooter: true,
+  },
+  {
+    name: "Github",
+    icon: FiGithub,
+    href: "https://github.com/LioNguyen",
+    showHome: true,
+    showFooter: false,
+  },
+  {
+    name: "Npm",
+    icon: CgNpm,
+    href: "https://www.npmjs.com/~lionguyen",
+    showHome: true,
+    showFooter: false,
+  },
+  {
+    name: "Facebook",
+    icon: ImFacebook2,
+    href: "https://www.facebook.com/nghinguyen9994",
+    showHome: false,
+    showFooter: true,
+  },
+  {
+    name: "Instagram",
+    icon: ImInstagram,
+    href: "https://www.instagram.com/nguyenthanhnghi9994/",
+    showHome: false,
+    showFooter: true,
+  },
 ];

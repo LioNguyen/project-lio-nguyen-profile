@@ -5,6 +5,7 @@ import { FC } from "react";
 import { CgMenuMotion } from "react-icons/cg";
 import { PiHouse } from "react-icons/pi";
 import { Hooks } from "react-minimist-utils";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 // import LogoLink from "@/assets/images/logo-lio-full-1800.png";
 import { BottomNavbar } from "@/components";
@@ -16,14 +17,8 @@ export const Navbar: FC<NavbarProps> = (props) => {
   const { useScrolling, useToggle } = Hooks;
   const [isShowBottomNavbar, toggleBottomNavbar] = useToggle(false);
   const isScrolling = useScrolling();
-
-  // useEffect(() => {
-  //   const currentHash = window.location.hash;
-  //   const element = document.querySelector(currentHash);
-  //   if (element) {
-  //     element.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // }, []);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <S.Wrapper
@@ -40,14 +35,19 @@ export const Navbar: FC<NavbarProps> = (props) => {
         maxW={"container.lg"}
         padding="15px 32px"
       >
-        <Center className="navbar__left" as="a" href="#home" aria-label="home">
-          <PiHouse size={30} />
+        <S.HomeLogo
+          className="navbar__left"
+          as="a"
+          href="#home"
+          aria-label="home"
+        >
+          <PiHouse size={25} />
           {/* <Image
             src={LogoLink}
             alt="logo"
             width={{ base: "60px", sm: isScrolling ? "100px" : "250px" }}
           /> */}
-        </Center>
+        </S.HomeLogo>
 
         <Spacer className="navbar__spacer" />
 
@@ -61,21 +61,16 @@ export const Navbar: FC<NavbarProps> = (props) => {
             <Center
               key={item.name}
               as="a"
-              href={item.href}
+              // href={item.href}
               className="navbar__item"
-              // borderBottom={currentHash === item.href ? "1px solid" : "none"}
-              // borderBottomColor={
-              //   currentHash === item.href
-              //     ? "default.titleDark"
-              //     : "default.title"
-              // }
-              // color={
-              //   currentHash === item.href
-              //     ? "default.titleDark"
-              //     : "default.title"
-              // }
-              // opacity={currentHash === item.href ? 1 : 0.7}
+              borderBottom={
+                location.pathname === `/${item.name}` ? "1px solid" : ""
+              }
+              borderBottomColor={
+                location.pathname === `/${item.name}` ? "default.titleDark" : ""
+              }
               color="default.title"
+              cursor={"pointer"}
               _hover={{
                 color: "default.titleDark",
                 opacity: 1,
@@ -84,8 +79,9 @@ export const Navbar: FC<NavbarProps> = (props) => {
               }}
               height="40px"
               transition={"all 0.1s"}
+              onClick={() => navigate(`/${item.name}`)}
             >
-              {item.name}
+              {item.title}
             </Center>
           ))}
         </S.NavbarMenu>

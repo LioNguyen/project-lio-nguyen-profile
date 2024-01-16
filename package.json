@@ -15,10 +15,14 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "framer-motion": "^10.16.5",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
-    "react-minimist-utils": "^0.0.0"
+    "react-minimist-utils": "^0.0.0",
+    "react-router-dom": "^6.21.2",
+    "sort-by": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
