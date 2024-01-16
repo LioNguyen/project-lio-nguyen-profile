@@ -16,7 +16,7 @@ import { FC, useState } from "react";
 import { BiMouse } from "react-icons/bi";
 import { FaArrowDown } from "react-icons/fa6";
 import { PiPaperPlaneTilt } from "react-icons/pi";
-import { SocialWidget } from "@/components";
+import { CustomButton, SocialWidget } from "@/components";
 
 interface HomePageProps extends ContainerProps {}
 
@@ -101,16 +101,12 @@ export const HomePage: FC<HomePageProps> = (props) => {
             and turning ideas into reality.
           </Text>
 
-          <Button
-            as="a"
+          <CustomButton
             href="#about"
-            marginTop={{ base: 5, sm: 10 }}
             rightIcon={<PiPaperPlaneTilt color="white" size={25} />}
-            transform={{ base: "scale(0.8)", sm: "none" }}
-            transformOrigin="left"
           >
             Say Hello
-          </Button>
+          </CustomButton>
         </Stack>
 
         {/* Right side */}

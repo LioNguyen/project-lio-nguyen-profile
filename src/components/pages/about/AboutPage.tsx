@@ -5,6 +5,7 @@ import { Utils } from "react-minimist-utils";
 import { FC, HTMLAttributes } from "react";
 import { CgFileDocument } from "react-icons/cg";
 import { PiConfetti, PiMedal } from "react-icons/pi";
+import { CustomButton } from "@/components";
 
 interface AboutPageProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -125,15 +126,14 @@ export const AboutPage: FC<AboutPageProps> = (props) => {
                 individual who enjoys working in a team environment. I am a fast
                 learner and I am always looking for new challenges.
               </Text>
-              <Button
+              <CustomButton
                 onClick={() => Utils.Data.downloadFile(CV_URL)}
                 rightIcon={<CgFileDocument color="white" size={25} />}
-                transform={{ base: "scale(0.8)", sm: "none" }}
                 transformOrigin="center"
                 width="50%"
               >
                 Download CV
-              </Button>
+              </CustomButton>
             </Stack>
           </Stack>
         </Stack>
