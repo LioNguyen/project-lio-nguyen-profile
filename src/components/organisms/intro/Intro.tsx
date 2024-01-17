@@ -1,7 +1,8 @@
+import * as S from "./Intro.styles";
+
 import ProfileImage_1 from "@/assets/images/profile_1.jpeg";
 import { HAND_ICON_URL } from "@/constants";
 import {
-  Button,
   Center,
   Container,
   ContainerProps,
@@ -11,11 +12,13 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { Hooks } from "react-minimist-utils";
 import { FC, useState } from "react";
 import { BiMouse } from "react-icons/bi";
 import { FaArrowDown } from "react-icons/fa6";
 import { PiPaperPlaneTilt } from "react-icons/pi";
+import { Hooks } from "react-minimist-utils";
+import TypewriterComponent from "typewriter-effect";
+
 import { CustomButton, SocialWidget } from "@/components";
 
 interface IntroProps extends ContainerProps {}
@@ -50,15 +53,15 @@ export const Intro: FC<IntroProps> = (props) => {
   const { scrollTo } = Hooks.Window.useScrollTo();
 
   return (
-    <Container
-      id="home"
+    <S.Wrapper
+      id="intro"
       variant="pageLayout"
       height={{ base: "unset", sm: "100vh" }}
       minH={{ base: "unset", sm: "700px" }}
       {...props}
     >
       {/* Content section */}
-      <Stack
+      <S.Content
         className="home__content"
         height={"100%"}
         gap={6}
@@ -68,8 +71,9 @@ export const Intro: FC<IntroProps> = (props) => {
         paddingLeft={{ base: 0, sm: 20 }}
       >
         <SocialWidget />
+
         {/* Left side */}
-        <Stack
+        <S.LeftSideContent
           className="home__left"
           flex={1}
           alignItems={"flex-start"}
@@ -93,7 +97,13 @@ export const Intro: FC<IntroProps> = (props) => {
               color="default.titleDark"
               whiteSpace={{ base: "unset", md: "nowrap" }}
             >
-              Frontend Software Engineer
+              <TypewriterComponent
+                options={{
+                  strings: ["Software Engineer"],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
             </Text>
           </Stack>
           <Text color="default.text" fontSize={{ base: "sm", sm: "md" }}>
@@ -107,10 +117,10 @@ export const Intro: FC<IntroProps> = (props) => {
           >
             Say Hello
           </CustomButton>
-        </Stack>
+        </S.LeftSideContent>
 
         {/* Right side */}
-        <Center className="home__right" flex={1}>
+        <S.RightSideContent className="home__right" flex={1}>
           <Image
             display={isImageLoaded ? "block" : "none"}
             onLoad={() => setIsImageLoaded(true)}
@@ -124,8 +134,8 @@ export const Intro: FC<IntroProps> = (props) => {
             alt="My Profile"
             borderRadius="full"
           />
-        </Center>
-      </Stack>
+        </S.RightSideContent>
+      </S.Content>
 
       {/* Arrow down section */}
       <Stack
@@ -146,6 +156,6 @@ export const Intro: FC<IntroProps> = (props) => {
         <BiMouse size={50} /> <Text>Scroll Down</Text>{" "}
         <FaArrowDown className="arrow-down" size={20} />
       </Stack>
-    </Container>
+    </S.Wrapper>
   );
 };

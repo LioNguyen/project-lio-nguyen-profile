@@ -7,3 +7,4 @@ export * from "./qualification";
 export * from "./skills";
 export * from "./skills-box";
 export * from "./social-widget";
+export * from "./short-description";

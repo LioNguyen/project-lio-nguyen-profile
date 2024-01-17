@@ -1,11 +1,11 @@
 import * as S from "./Navbar.styles";
 
-import { Center, ContainerProps, Flex, Spacer } from "@chakra-ui/react";
+import { Center, ContainerProps, Flex, Icon, Spacer } from "@chakra-ui/react";
 import { FC } from "react";
 import { CgMenuMotion } from "react-icons/cg";
 import { PiHouse } from "react-icons/pi";
 import { Hooks } from "react-minimist-utils";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 // import LogoLink from "@/assets/images/logo-lio-full-1800.png";
 import { BottomNavbar } from "@/components";
@@ -37,11 +37,10 @@ export const Navbar: FC<NavbarProps> = (props) => {
       >
         <S.HomeLogo
           className="navbar__left"
-          as="a"
-          href="#home"
-          aria-label="home"
+          cursor={"pointer"}
+          onClick={() => navigate("/")}
         >
-          <PiHouse size={25} />
+          <Icon as={PiHouse} boxSize={{ base: "20px", md: "25px" }} />
           {/* <Image
             src={LogoLink}
             alt="logo"
@@ -60,14 +59,14 @@ export const Navbar: FC<NavbarProps> = (props) => {
           {navItems.map((item) => (
             <Center
               key={item.name}
-              as="a"
-              // href={item.href}
               className="navbar__item"
               borderBottom={
-                location.pathname === `/${item.name}` ? "1px solid" : ""
+                location.pathname === `${item.navigate}` ? "1px solid" : ""
               }
               borderBottomColor={
-                location.pathname === `/${item.name}` ? "default.titleDark" : ""
+                location.pathname === `${item.navigate}`
+                  ? "default.titleDark"
+                  : ""
               }
               color="default.title"
               cursor={"pointer"}
@@ -79,7 +78,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
               }}
               height="40px"
               transition={"all 0.1s"}
-              onClick={() => navigate(`/${item.name}`)}
+              onClick={() => navigate(`${item.navigate}`)}
             >
               {item.title}
             </Center>

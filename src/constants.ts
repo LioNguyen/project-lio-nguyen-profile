@@ -24,12 +24,14 @@ export const navItems = [
     name: "home",
     title: "Home",
     href: "#home",
+    navigate: "/",
   },
   {
     icon: CgProfile,
     name: "about",
     title: "About",
     href: "#about",
+    navigate: "/about",
   },
   // {
   //   icon: FaRegFileLines,

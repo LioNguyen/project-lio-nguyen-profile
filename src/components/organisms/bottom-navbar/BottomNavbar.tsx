@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { FC } from "react";
 import { IoClose } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 interface BottomNavbarProps extends ContainerProps {
   navItems: any[];
@@ -21,6 +22,8 @@ export const BottomNavbar: FC<BottomNavbarProps> = ({
   toggleModal,
   ...props
 }) => {
+  const navigate = useNavigate();
+
   return (
     <Container
       id="bottom-navbar"
@@ -41,20 +44,19 @@ export const BottomNavbar: FC<BottomNavbarProps> = ({
             <Stack
               key={item.name}
               className="navbar__item"
-              as="a"
-              href={item.href}
               alignItems="center"
               justifyContent="flex-start"
-              gap="2px"
+              gap="4px"
               width={"30%"}
+              onClick={() => navigate(`${item.navigate}`)}
             >
               {<Icon size={20} />}
-              <Text fontSize="xs">{item.name}</Text>
+              <Text fontSize="10px">{item.title}</Text>
             </Stack>
           );
         })}
         <Box width={"30%"}></Box>
-        <Box width={"30%"}></Box>
+        {/* <Box width={"30%"}></Box> */}
         <Center
           className="navbar__close-icon"
           as="button"
