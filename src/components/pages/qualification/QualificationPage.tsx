@@ -4,7 +4,7 @@ import { FC } from "react";
 import { HiOutlineBriefcase } from "react-icons/hi";
 import { RiGraduationCapLine } from "react-icons/ri";
 
-interface QualificationPageProps extends ContainerProps {}
+export interface QualificationPageProps extends ContainerProps {}
 
 export const QualificationPage: FC<QualificationPageProps> = (props) => {
   return (

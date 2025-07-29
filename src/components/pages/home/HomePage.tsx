@@ -18,7 +18,7 @@ import { FaArrowDown } from "react-icons/fa6";
 import { PiPaperPlaneTilt } from "react-icons/pi";
 import { CustomButton, SocialWidget } from "@/components";
 
-interface HomePageProps extends ContainerProps {}
+export interface HomePageProps extends ContainerProps {}
 
 const profileAnimate = keyframes`
     0% {

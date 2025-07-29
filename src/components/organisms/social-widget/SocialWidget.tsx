@@ -5,7 +5,7 @@ import { CgNpm } from "react-icons/cg";
 import { FaLinkedin } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 
-interface SocialWidgetProps extends StackProps {}
+export interface SocialWidgetProps extends StackProps {}
 
 export const SocialWidget: FC<SocialWidgetProps> = (props) => {
   const { isMobile } = useDevice();

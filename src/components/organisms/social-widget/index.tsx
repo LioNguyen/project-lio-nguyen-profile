@@ -4,3 +4,5 @@ export const SocialWidget = Utils.lazyLoad(
   () => import("./SocialWidget"),
   (module) => module.SocialWidget
 );
+
+export type { SocialWidgetProps } from "./SocialWidget";

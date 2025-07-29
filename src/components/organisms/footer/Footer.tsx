@@ -11,7 +11,7 @@ import { FC } from "react";
 import { ImFacebook2, ImInstagram } from "react-icons/im";
 import { SiLinkedin } from "react-icons/si";
 
-interface FooterProps extends ContainerProps {}
+export interface FooterProps extends ContainerProps {}
 
 export const Footer: FC<FooterProps> = (props) => {
   const { isMobile } = useDevice();

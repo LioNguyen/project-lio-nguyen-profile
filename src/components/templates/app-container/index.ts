@@ -4,3 +4,5 @@ export const AppContainer = Utils.React.lazyLoad(
   () => import("./AppContainer"),
   (module) => module.AppContainer
 );
+
+export type { AppContainerProps } from "./AppContainer";

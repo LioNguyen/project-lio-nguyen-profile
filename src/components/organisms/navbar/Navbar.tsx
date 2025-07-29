@@ -10,7 +10,7 @@ import { Hooks } from "react-minimist-utils";
 import { BottomNavbar } from "@/components";
 import { navItems } from "@/constants";
 
-interface NavbarProps extends ContainerProps {}
+export interface NavbarProps extends ContainerProps {}
 
 export const Navbar: FC<NavbarProps> = (props) => {
   const { useScrolling, useToggle } = Hooks;

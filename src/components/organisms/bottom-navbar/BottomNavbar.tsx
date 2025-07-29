@@ -10,7 +10,7 @@ import {
 import { FC } from "react";
 import { IoClose } from "react-icons/io5";
 
-interface BottomNavbarProps extends ContainerProps {
+export interface BottomNavbarProps extends ContainerProps {
   navItems: any[];
   toggleModal?: Function;
 }

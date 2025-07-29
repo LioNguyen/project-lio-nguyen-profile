@@ -2,7 +2,7 @@ import { Box, BoxProps, Circle, Flex, Spacer, Text } from "@chakra-ui/react";
 import { Utils } from "react-minimist-utils";
 import { FC } from "react";
 
-interface SkillsBoxProps extends BoxProps {
+export interface SkillsBoxProps extends BoxProps {
   boxTitle: string;
   data: any[];
 }

@@ -1,7 +1,7 @@
 import { Button, ButtonProps } from "@chakra-ui/react";
 import { FC } from "react";
 
-interface CustomButtonProps extends ButtonProps {
+export interface CustomButtonProps extends ButtonProps {
   href?: string;
 }
 

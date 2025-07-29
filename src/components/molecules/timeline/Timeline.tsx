@@ -1,7 +1,7 @@
 import { Box, Circle, Divider, Stack, Text } from "@chakra-ui/react";
 import { FC, Fragment, HTMLAttributes } from "react";
 
-interface TimelineProps extends HTMLAttributes<HTMLDivElement> {}
+export interface TimelineProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const Timeline: FC<TimelineProps> = ({ className = "", ...props }) => {
   const arr = [

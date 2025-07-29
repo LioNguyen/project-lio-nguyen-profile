@@ -4,3 +4,5 @@ export const Footer = Utils.lazyLoad(
   () => import("./Footer"),
   (module) => module.Footer
 );
+
+export type { FooterProps } from "./Footer";

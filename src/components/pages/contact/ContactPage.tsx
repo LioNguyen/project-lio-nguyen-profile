@@ -1,7 +1,7 @@
 import { Container, Stack, Text } from "@chakra-ui/react";
 import { FC, HTMLAttributes } from "react";
 
-interface ContactPageProps extends HTMLAttributes<HTMLDivElement> {}
+export interface ContactPageProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const ContactPage: FC<ContactPageProps> = (props) => {
   return (

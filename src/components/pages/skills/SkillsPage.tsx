@@ -2,7 +2,7 @@ import { SkillsBox } from "@/components";
 import { Container, Stack, Text } from "@chakra-ui/react";
 import { FC, HTMLAttributes } from "react";
 
-interface SkillsPageProps extends HTMLAttributes<HTMLDivElement> {}
+export interface SkillsPageProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const SkillsPage: FC<SkillsPageProps> = ({ children, ...props }) => {
   const frontendData = [

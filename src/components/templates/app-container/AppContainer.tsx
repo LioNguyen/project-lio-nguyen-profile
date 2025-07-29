@@ -3,7 +3,7 @@ import { FC } from "react";
 import { IoArrowUpOutline } from "react-icons/io5";
 import { Hooks } from "react-minimist-utils";
 
-interface AppContainerProps extends ContainerProps {}
+export interface AppContainerProps extends ContainerProps {}
 
 export const AppContainer: FC<AppContainerProps> = ({ children, ...props }) => {
   const { useScrolling } = Hooks.Window;

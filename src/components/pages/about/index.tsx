@@ -4,3 +4,5 @@ export const AboutPage = Utils.React.lazyLoad(
   () => import("./AboutPage"),
   (module) => module.AboutPage
 );
+
+export type { AboutPageProps } from "./AboutPage";

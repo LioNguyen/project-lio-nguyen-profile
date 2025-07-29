@@ -7,7 +7,7 @@ import { CgFileDocument } from "react-icons/cg";
 import { PiConfetti, PiMedal } from "react-icons/pi";
 import { CustomButton } from "@/components";
 
-interface AboutPageProps extends HTMLAttributes<HTMLDivElement> {}
+export interface AboutPageProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const AboutPage: FC<AboutPageProps> = (props) => {
   return (
