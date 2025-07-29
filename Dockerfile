@@ -1,33 +1,39 @@
 # Multi-stage Docker build for React/Vite application
 
 # Stage 1: Build stage
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
+
+# Install bun
+RUN npm install -g bun
 
 # Set working directory
 WORKDIR /app
 
 # Copy package files
-COPY package.json package-lock.json* ./
+COPY package.json bun.lockb* ./
 
 # Install dependencies
-RUN npm ci --silent
+RUN bun install --frozen-lockfile
 
 # Copy source code
 COPY . .
 
 # Build the application
-RUN npm run build
+RUN bun run build
 
 # Stage 2: Production stage using Vite preview
-FROM node:18-alpine AS production
+FROM node:20-alpine AS production
+
+# Install bun
+RUN npm install -g bun
 
 WORKDIR /app
 
 # Copy package files
-COPY package.json package-lock.json* ./
+COPY package.json bun.lockb* ./
 
 # Install only production dependencies and vite for preview
-RUN npm ci --only=production --silent && npm install vite --silent
+RUN bun install --production --frozen-lockfile && bun add vite
 
 # Copy built application and necessary config files
 COPY --from=builder /app/dist ./dist
@@ -51,4 +57,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD wget --no-verbose --tries=1 --spider http://localhost:5173 || exit 1
 
 # Start the application using vite preview
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "5173"]
+CMD ["bun", "run", "preview", "--", "--host", "0.0.0.0", "--port", "5173"]

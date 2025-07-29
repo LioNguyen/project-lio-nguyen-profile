@@ -10,9 +10,10 @@ export default defineConfig(() => ({
     react(),
     svgr(),
     tsConfigPaths(),
-    dts({
-      include: ["src"],
-    }),
+    // Temporarily disabled due to dependency issues with bun
+    // dts({
+    //   include: ["src"],
+    // }),
   ],
   resolve: {
     alias: {

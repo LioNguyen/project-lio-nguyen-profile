@@ -7,10 +7,10 @@ import {
   ContainerProps,
   Divider,
   Image,
-  keyframes,
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { keyframes } from "@emotion/react";
 import { Hooks } from "react-minimist-utils";
 import { FC, useState } from "react";
 import { BiMouse } from "react-icons/bi";
