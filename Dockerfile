@@ -3,8 +3,10 @@
 # Stage 1: Build stage
 FROM node:20-alpine AS builder
 
-# Install bun
-RUN npm install -g bun
+# Install bun using curl (more reliable for different architectures)
+RUN apk add --no-cache curl unzip && \
+    curl -fsSL https://bun.sh/install | bash && \
+    ln -s /root/.bun/bin/bun /usr/local/bin/bun
 
 # Set working directory
 WORKDIR /app
@@ -24,8 +26,10 @@ RUN bun run build
 # Stage 2: Production stage using Vite preview
 FROM node:20-alpine AS production
 
-# Install bun
-RUN npm install -g bun
+# Install bun using curl (more reliable for different architectures)
+RUN apk add --no-cache curl unzip && \
+    curl -fsSL https://bun.sh/install | bash && \
+    ln -s /root/.bun/bin/bun /usr/local/bin/bun
 
 WORKDIR /app
 
