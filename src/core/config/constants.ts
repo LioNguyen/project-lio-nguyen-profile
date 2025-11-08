@@ -38,9 +38,9 @@ export const navItems: NavItem[] = [
   },
   {
     icon: HiOutlineBriefcase,
-    name: 'Qualification',
-    href: '#qualification',
-    value: 'qualification',
+    name: 'Journey',
+    href: '#journey',
+    value: 'journey',
   },
   {
     icon: CgProfile,

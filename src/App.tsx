@@ -8,7 +8,7 @@ import { AppContainer } from '@/core/components/templates/AppContainer';
 import { AboutPage } from '@/pages/About';
 // import { ContactPage } from '@/pages/Contact';
 import { HomePage } from '@/pages/Home';
-import { QualificationPage } from '@/pages/Qualification';
+import { JourneyPage } from '@/pages/Journey';
 import { SkillsPage } from '@/pages/Skills';
 import { DefaultTheme, Fonts } from '@/styles';
 
@@ -26,14 +26,14 @@ const theme = extendTheme({
 const sectionToIndex: Record<string, number> = {
   home: 0,
   skills: 1,
-  qualification: 2,
+  journey: 2,
   about: 3,
 };
 
 const indexToSection: Record<number, string> = {
   0: 'home',
   1: 'skills',
-  2: 'qualification',
+  2: 'journey',
   3: 'about',
 };
 
@@ -74,7 +74,7 @@ function App() {
                 <SkillsPage key={`skills-${activeTabIndex === 1 ? Date.now() : 0}`} />
               </TabPanel>
               <TabPanel p={0}>
-                <QualificationPage key={`qualification-${activeTabIndex === 2 ? Date.now() : 0}`} />
+                <JourneyPage key={`qualification-${activeTabIndex === 2 ? Date.now() : 0}`} />
               </TabPanel>
               <TabPanel p={0}>
                 <AboutPage key={`about-${activeTabIndex === 3 ? Date.now() : 0}`} />

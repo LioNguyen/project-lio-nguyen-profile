@@ -254,7 +254,7 @@ export const Timeline: FC<TimelineProps> = memo(({ className = '', ...props }) =
                   {item.details && item.details.length > 0 && (
                     <Box marginTop={{ base: '6px', sm: '8px' }}>
                       <Text
-                        fontSize={{ base: '8px', sm: '10px', md: '11px' }}
+                        fontSize={{ base: '10px', sm: '12px', md: '14px' }}
                         color="gray.600"
                         lineHeight="1.4"
                         noOfLines={2}

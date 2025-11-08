@@ -6,13 +6,13 @@ import type { StackProps } from '@chakra-ui/react';
 import { Timeline, ExperienceDrawer } from './organisms';
 
 /**
- * QualificationPageContent Component
- * Core content for the Qualification page
+ * JourneyPageContent Component
+ * Core content for the Journey page
  * Contains the header and timeline display
  */
-export interface QualificationPageContentProps extends StackProps {}
+export interface JourneyPageContentProps extends StackProps {}
 
-export const QualificationPageContent: FC<QualificationPageContentProps> = memo((props) => {
+export const JourneyPageContent: FC<JourneyPageContentProps> = memo((props) => {
 
   return (
     <>
@@ -24,7 +24,7 @@ export const QualificationPageContent: FC<QualificationPageContentProps> = memo(
       >
         {/* START: Header */}
         <Text variant="title">
-          Qualification
+          Journey
         </Text>
         {/* END: Header */}
 
@@ -45,4 +45,4 @@ export const QualificationPageContent: FC<QualificationPageContentProps> = memo(
   );
 });
 
-QualificationPageContent.displayName = 'QualificationPageContent';
+JourneyPageContent.displayName = 'JourneyPageContent';
