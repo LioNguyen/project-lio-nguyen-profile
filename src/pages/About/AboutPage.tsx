@@ -1,139 +1,15 @@
 import { memo } from 'react';
 import type { FC, HTMLAttributes } from 'react';
-import { Box, Container, Image, Stack, Text } from '@chakra-ui/react';
-import { PiConfetti, PiMedal } from 'react-icons/pi';
+import { Container } from '@chakra-ui/react';
 
-import ProfileImage_2 from '@/shared/assets/images/profile_2.jpeg';
+import { AboutPageContent } from '@/modules/about/components';
 
 export interface AboutPageProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const AboutPage: FC<AboutPageProps> = memo((props) => {
-  const text1 = "Frontend Engineer with 5 years of experience architecting and optimizing large-scale React applications. Specialized in TypeScript architecture, state management design, and UI performance optimization for data-intensive systems.";
-  const text2 = "Bridging engineering and business — leveraging 4+ years of accounting background to build reliable, domain-driven SaaS products. Self-motivated, hard-working, and goal-oriented team player who thrives on new challenges.";
-
   return (
     <Container id="about" variant="pageLayout" {...props}>
-      {/* Content section */}
-      <Stack className="about__content" height="100%" textAlign="center">
-        {/* START: Header */}
-        <Text variant="title">
-          About Me
-        </Text>
-        <Text variant="subtitle">
-          My Introduction
-        </Text>
-        {/* END: Header */}
-
-        {/* START: Body */}
-        <Stack
-          flex={1}
-          justifyContent={{ base: 'flex-start', md: 'center' }}
-          marginTop="20px"
-        >
-          <Stack
-            gap={6}
-            height={{ base: 'fit-content' }}
-            direction={{ base: 'column', md: 'row' }}
-            alignItems={{ base: 'center', md: 'flex-start' }}
-            justifyContent={{ base: 'flex-start', md: 'space-around' }}
-            textAlign={{ base: 'center', md: 'left' }}
-          >
-            <Box 
-              flex={{ base: 'none', md: 1 }}
-            >
-              <Image
-                src={ProfileImage_2}
-                alt="My Profile"
-                boxSize={{ base: '100%', md: '400px' }}
-                borderRadius={8}
-                objectFit="cover"
-                maxH={{ base: '300px', md: '100%' }}
-              />
-            </Box>
-
-            <Stack
-              flex={{ base: 'none', md: 1 }}
-              justifyContent={{ base: 'flex-start', md: 'space-between' }}
-              alignItems={{ base: 'center', md: 'unset' }}
-              gap={{ base: 5, md: 'none' }}
-              height="100%"
-            >
-              <Stack
-                flexDirection="row"
-                justifyContent="space-between"
-                width="100%"
-              >
-                <Box
-                  flex={1}
-                  borderRadius={4}
-                  border="1px"
-                  borderColor="default.text"
-                  padding="20px 0"
-                >
-                  <Stack
-                    alignItems="center"
-                    justifyContent="center"
-                    height="100%"
-                  >
-                    <PiMedal size={25} />
-                    <Text
-                      color="default.title"
-                      fontSize={{ base: 'sm', sm: 'md', md: 'lg' }}
-                      fontWeight="medium"
-                    >
-                      Experience
-                    </Text>
-                    <Text
-                      color="default.text"
-                      fontSize={{ base: 'xs', sm: 'sm', md: 'md' }}
-                    >
-                      5+ Years
-                    </Text>
-                  </Stack>
-                </Box>
-                <Box
-                  flex={1}
-                  borderRadius={4}
-                  border="1px"
-                  borderColor="default.text"
-                  padding="20px 0"
-                >
-                  <Stack
-                    alignItems="center"
-                    justifyContent="center"
-                    height="100%"
-                  >
-                    <PiConfetti size={25} />
-                    <Text
-                      color="default.title"
-                      fontSize={{ base: 'sm', sm: 'md', md: 'lg' }}
-                      fontWeight="medium"
-                    >
-                      Completed
-                    </Text>
-                    <Text
-                      color="default.text"
-                      fontSize={{ base: 'xs', sm: 'sm', md: 'md' }}
-                    >
-                      5+ Projects
-                    </Text>
-                  </Stack>
-                </Box>
-              </Stack>
-              <Text
-                color="default.text"
-                fontSize={{ base: 'md', sm: 'lg', md: 'xl' }}
-              >
-                {text1}
-                <br />
-                <br />
-                {text2}
-              </Text>
-            </Stack>
-          </Stack>
-        </Stack>
-        {/* END: Body */}
-      </Stack>
+      <AboutPageContent />
     </Container>
   );
 });
