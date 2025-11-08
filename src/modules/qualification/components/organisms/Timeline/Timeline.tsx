@@ -6,27 +6,20 @@ import {
   Card,
   CardBody,
 } from '@chakra-ui/react'
-import { Fragment, memo, useState } from 'react'
+import { Fragment, memo } from 'react'
 import { motion } from 'framer-motion'
 import type { FC, HTMLAttributes } from 'react'
-import { ExperienceDrawer } from '../ExperienceDrawer'
+
+import { useDrawerStore, type ExperienceItem } from '@/shared/store'
 
 /**
  * Timeline Component
  * Displays a vertical timeline with alternating items and continuous line animation
+ * Connected to global Zustand store for drawer state management
  */
 export interface TimelineProps extends HTMLAttributes<HTMLDivElement> {}
 
-interface TimelineItem {
-  subtitle: string
-  time: string
-  title: string
-  type: 'freelance' | 'fulltime'
-  details?: string[]
-  techStack?: string
-}
-
-const TIMELINE_DATA: TimelineItem[] = [
+const TIMELINE_DATA: ExperienceItem[] = [
   {
     title: 'Software Engineer',
     subtitle: 'RISKOA',
@@ -93,17 +86,10 @@ const TIMELINE_DATA: TimelineItem[] = [
 
 export const Timeline: FC<TimelineProps> = memo(({ className = '', ...props }) => {
   const itemDuration = 0.8 // Duration for each item to appear (seconds) - faster
-  const [selectedExperience, setSelectedExperience] = useState<{
-    index: number;
-    item: TimelineItem;
-  } | null>(null)
+  const openExperienceDrawer = useDrawerStore(state => state.openExperienceDrawer)
 
-  const handleOpenDrawer = (index: number, item: TimelineItem) => {
-    setSelectedExperience({ index, item })
-  }
-
-  const handleCloseDrawer = () => {
-    setSelectedExperience(null)
+  const handleOpenDrawer = (index: number, item: ExperienceItem) => {
+    openExperienceDrawer(index, item)
   }
 
   const renderTimeline = () => {
@@ -288,35 +274,19 @@ export const Timeline: FC<TimelineProps> = memo(({ className = '', ...props }) =
   }
 
   return (
-    <>
-      <Stack
-        alignItems="center"
-        className={`timeline ${className}`}
-        gap={0}
-        padding="50px 0 100px"
-        position="relative"
-        {...props}
-      >
-        {/* Timeline content */}
-        <Stack alignItems="center" gap={0} position="relative">
-          {renderTimeline()}
-        </Stack>
+    <Stack
+      alignItems="center"
+      className={`timeline ${className}`}
+      gap={0}
+      padding="50px 0 100px"
+      position="relative"
+      {...props}
+    >
+      {/* Timeline content */}
+      <Stack alignItems="center" gap={0} position="relative">
+        {renderTimeline()}
       </Stack>
-
-      {/* Single Drawer instance outside of timeline rendering */}
-      {selectedExperience && (
-        <ExperienceDrawer
-          isOpen={true}
-          onClose={handleCloseDrawer}
-          title={selectedExperience.item.title}
-          subtitle={selectedExperience.item.subtitle}
-          time={selectedExperience.item.time}
-          type={selectedExperience.item.type}
-          details={selectedExperience.item.details || []}
-          techStack={selectedExperience.item.techStack ? selectedExperience.item.techStack.split(',').map(tech => tech.trim()) : []}
-        />
-      )}
-    </>
+    </Stack>
   )
 })
 
