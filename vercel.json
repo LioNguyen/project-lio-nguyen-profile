@@ -1,4 +1,0 @@
-{
-  "buildCommand": "bun run build",
-  "nodeVersion": "22.x"
-}
