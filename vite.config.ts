@@ -18,12 +18,17 @@ export default defineConfig(() => ({
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
-      "@/assets": resolve(__dirname, "./src/assets"),
-      "@/constants": resolve(__dirname, "./src/constants"),
-      "@/components": resolve(__dirname, "./src/components"),
-      "@/hooks": resolve(__dirname, "./src/hooks"),
+      "@/core": resolve(__dirname, "./src/core"),
+      "@/pages": resolve(__dirname, "./src/pages"),
+      "@/shared": resolve(__dirname, "./src/shared"),
+      "@/test": resolve(__dirname, "./src/test"),
+      // Legacy aliases for backward compatibility during migration
+      "@/assets": resolve(__dirname, "./src/shared/assets"),
+      "@/constants": resolve(__dirname, "./src/core/config"),
+      "@/components": resolve(__dirname, "./src/core/components"),
+      "@/hooks": resolve(__dirname, "./src/shared/hooks"),
       "@/stories": resolve(__dirname, "./src/stories"),
-      "@/utils": resolve(__dirname, "./src/utils"),
+      "@/utils": resolve(__dirname, "./src/shared/utils"),
     },
   },
   preview: {
@@ -35,5 +40,11 @@ export default defineConfig(() => ({
     host: true,
     port: 5173,
     strictPort: true,
+  },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/test/setup.ts",
+    css: true,
   },
 }));

@@ -1,0 +1,10 @@
+export { AboutPage } from './About';
+export type { AboutPageProps } from './About';
+export { ContactPage } from './Contact';
+export type { ContactPageProps } from './Contact';
+export { HomePage } from './Home';
+export type { HomePageProps } from './Home';
+export { QualificationPage } from './Qualification';
+export type { QualificationPageProps } from './Qualification';
+export { SkillsPage } from './Skills';
+export type { SkillsPageProps } from './Skills';
