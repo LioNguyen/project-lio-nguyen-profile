@@ -1,9 +1,10 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import type { FC } from 'react';
 import { Stack, Text } from '@chakra-ui/react';
 import type { StackProps } from '@chakra-ui/react';
 
 import ProfileImage_2 from '@/shared/assets/images/profile_2.jpeg';
+import { useI18n } from '@/core/i18n';
 import { AboutSection } from './organisms/AboutSection';
 
 /**
@@ -14,42 +15,66 @@ import { AboutSection } from './organisms/AboutSection';
 export interface AboutPageContentProps extends StackProps {}
 
 export const AboutPageContent: FC<AboutPageContentProps> = memo((props) => {
-  // Markdown content with paragraphs separated by double newlines
-  const content = `During high school, I was part of the Informatics Talent Team at Trần Đại Nghĩa, one of Vietnam's top specialized schools. I reached the Olympic finals in programming competitions and earned my Microsoft Office Specialist certification. But when it came time for university, I chose a different path — studying Accounting & Auditing at Ho Chi Minh University of Banking. I thought I was being practical, choosing safety over passion.
+  const { t } = useI18n();
 
-For nearly 4 years, I worked as an accountant. The work was stable, but every day I felt the gap between what I was doing and what I wanted to do growing wider. I watched developers create products that touched millions while I reconciled spreadsheets. The fear of starting over at 26, with no formal CS degree, almost stopped me. "Am I too late? Can I really do this?" — these questions haunted me.
-
-In 2020, I made the hardest decision of my life: I taught myself programming from zero. The first months were brutal. I spent nights debugging code that seemed impossible, watching tutorials on repeat, feeling like everyone else understood something I didn't. There were moments I wanted to quit — when a single bug took days to fix, when interviews rejected me for "lack of experience," when I questioned if I'd wasted years on the wrong path.
-
-But I kept going. My accounting background, the thing I thought was a disadvantage, became my strength. I understood business requirements, user workflows, and system reliability in ways bootcamp grads didn't. I learned to break down complex problems into smaller pieces — the same skill I used balancing books. Slowly, one small win at a time, I built confidence. Each solved bug, each working feature, each "aha!" moment proved I could do this.
-
-Today, 5+ years later, I architect enterprise solutions for global companies. But more importantly, I proved to myself that it's never too late. The journey from accounting to engineering wasn't about talent — it was about showing up every day, especially on days I didn't want to. If you're thinking about changing careers, learning something new, or chasing a dream that seems impossible: start messy, stay consistent, and trust the process. Your past doesn't limit you — it prepares you.`;
+  // Build content from paragraphs with double newlines separator
+  const content = useMemo(() => {
+    return [
+      t('about.paragraph1'),
+      t('about.paragraph2'),
+      t('about.paragraph3'),
+      t('about.paragraph4'),
+      t('about.paragraph5'),
+    ].join('\n\n');
+  }, [t]);
 
   // Keywords to highlight for inspiration
   const highlights = [
-    // Background & Education
+    // Background & Education (English)
     'Informatics Talent Team', 'Trần Đại Nghĩa', 'Olympic finals',
     'Microsoft Office Specialist certification', 'Accounting & Auditing', 'Ho Chi Minh University of Banking',
     
-    // Challenges & Emotions
+    // Challenges & Emotions (English)
     'safety over passion', 'gap growing wider', 'fear of starting over',
     'too late', 'hardest decision', 'brutal', 'impossible', 'wanted to quit',
     'lack of experience', 'questioned', 'wasted years',
     
-    // Transformation & Growth
+    // Transformation & Growth (English)
     'taught myself programming', 'kept going', 'strength', 'break down complex problems',
     'small win at a time', 'built confidence', 'proved I could do this',
     
-    // Inspiration & Wisdom
+    // Inspiration & Wisdom (English)
     'never too late', 'showing up every day', 'start messy', 'stay consistent',
-    'trust the process', 'past doesn\'t limit you', 'prepares you'
+    'trust the process', 'past doesn\'t limit you', 'prepares you',
+
+    // Vietnamese keywords - Education & Background
+    'đội tuyển Tin học', 'THPT chuyên Trần Đại Nghĩa',
+    'vòng chung kết kỳ thi Olympic Tin học', 'chứng chỉ Microsoft Office Specialist',
+    'Kế toán & Kiểm toán', 'Đại học Ngân hàng TP.HCM',
+    
+    // Vietnamese keywords - Challenges & Emotions
+    'an toàn thay vì đam mê', 'khoảng cách', 'xa xôi', 'nỗi sợ hãi',
+    'quá muộn', 'quyết định khó khăn', 'tàn khốc', 'bất khả thi',
+    'muốn buông xuôi', 'thiếu kinh nghiệm thực tế', 'sự lãng phí',
+    'ám ảnh', 'thức trắng', 'liên tục từ chối',
+    
+    // Vietnamese keywords - Transformation & Growth
+    'tự học lập trình', 'không dừng lại', 'vũ khí bí mật',
+    'chia nhỏ vấn đề', 'chiến thắng nhỏ', 'xây dựng lại niềm tin',
+    'minh chứng', 'eureka', 'làm được',
+    
+    // Vietnamese keywords - Inspiration & Wisdom
+    'không bao giờ là quá muộn', 'không bỏ cuộc', 'xuất hiện mỗi ngày',
+    'bắt đầu dù lộn xộn', 'kiên trì dù khó khăn', 'tin vào quá trình',
+    'không giới hạn', 'tôi luyện', 'chuẩn bị', 'tỏa sáng',
+    'theo đuổi điều mình yêu thích', 'hành trình', 'chạm đến hàng triệu con tim',
   ];
 
   return (
     <Stack className="about__content" height="100%" textAlign="center" {...props}>
       {/* START: Header */}
       <Text variant="title">
-        About Me
+        {t('about.title')}
       </Text>
       {/* END: Header */}
 

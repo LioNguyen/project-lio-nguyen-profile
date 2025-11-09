@@ -1,2 +1,1 @@
-export * from './BaseDrawer'
 export * from './ComingSoon'

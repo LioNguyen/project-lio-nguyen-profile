@@ -1,11 +1,12 @@
 import { CgProfile } from 'react-icons/cg'
 import { FaRegFileLines } from 'react-icons/fa6'
 import { HiOutlineBriefcase } from 'react-icons/hi'
+import { MdWorkOutline } from 'react-icons/md'
 import { TbSmartHome } from 'react-icons/tb'
 import type { IconType } from 'react-icons'
 
 export const CV_URL =
-  'https://drive.google.com/file/d/1rcRaFPD3YWO2EKRElGlkuU3myWuoVnh5/view?usp=sharing'
+  import.meta.env.VITE_CV_URL || 'https://drive.google.com/file/d/1wUUU5VSU_sG3KnQ1cBATWCnXyWz-6DzM/view?usp=drive_link'
 
 export const CV_DIRECT_URL =
   'https://drive.usercontent.google.com/uc?id=1rcRaFPD3YWO2EKRElGlkuU3myWuoVnh5&authuser=3&export=download'
@@ -41,6 +42,12 @@ export const navItems: NavItem[] = [
     name: 'Journey',
     href: '#journey',
     value: 'journey',
+  },
+  {
+    icon: MdWorkOutline,
+    name: 'Projects',
+    href: '#projects',
+    value: 'projects',
   },
   {
     icon: CgProfile,

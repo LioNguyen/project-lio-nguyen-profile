@@ -9,6 +9,7 @@ import { AboutPage } from '@/pages/About';
 // import { ContactPage } from '@/pages/Contact';
 import { HomePage } from '@/pages/Home';
 import { JourneyPage } from '@/pages/Journey';
+import { ProjectsPage } from '@/pages/Projects';
 import { SkillsPage } from '@/pages/Skills';
 import { DefaultTheme, Fonts } from '@/styles';
 
@@ -27,14 +28,16 @@ const sectionToIndex: Record<string, number> = {
   home: 0,
   skills: 1,
   journey: 2,
-  about: 3,
+  projects: 3,
+  about: 4,
 };
 
 const indexToSection: Record<number, string> = {
   0: 'home',
   1: 'skills',
   2: 'journey',
-  3: 'about',
+  3: 'projects',
+  4: 'about',
 };
 
 function App() {
@@ -77,7 +80,10 @@ function App() {
                 <JourneyPage key={`qualification-${activeTabIndex === 2 ? Date.now() : 0}`} />
               </TabPanel>
               <TabPanel p={0}>
-                <AboutPage key={`about-${activeTabIndex === 3 ? Date.now() : 0}`} />
+                <ProjectsPage key={`projects-${activeTabIndex === 3 ? Date.now() : 0}`} />
+              </TabPanel>
+              <TabPanel p={0}>
+                <AboutPage key={`about-${activeTabIndex === 4 ? Date.now() : 0}`} />
               </TabPanel>
             </TabPanels>
           </AppContainer>

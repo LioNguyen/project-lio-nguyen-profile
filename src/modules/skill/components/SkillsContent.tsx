@@ -1,7 +1,8 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import type { FC, HTMLAttributes } from 'react';
 import { SimpleGrid, Stack, Text } from '@chakra-ui/react';
 
+import { useI18n } from '@/core/i18n';
 import { SkillsBox } from './organisms';
 
 export interface SkillsContentProps extends HTMLAttributes<HTMLDivElement> {}
@@ -9,7 +10,7 @@ export interface SkillsContentProps extends HTMLAttributes<HTMLDivElement> {}
 // Skill groups matching CV structure
 const SKILLS_GROUPS = [
   {
-    title: 'Frontend Stack',
+    titleKey: 'skills.frontendStack',
     skills: [
       { name: 'React', rate: 9 },
       { name: 'TypeScript', rate: 9 },
@@ -17,7 +18,7 @@ const SKILLS_GROUPS = [
     ],
   },
   {
-    title: 'State & Data Layer',
+    titleKey: 'skills.stateDataLayer',
     skills: [
       { name: 'Redux Saga', rate: 7 },
       { name: 'Zustand', rate: 8 },
@@ -27,7 +28,7 @@ const SKILLS_GROUPS = [
     ],
   },
   {
-    title: 'UI & Styling',
+    titleKey: 'skills.uiStyling',
     skills: [
       { name: 'Tailwind CSS', rate: 9 },
       { name: 'Chakra UI', rate: 8 },
@@ -36,7 +37,7 @@ const SKILLS_GROUPS = [
     ],
   },
   {
-    title: 'Tooling',
+    titleKey: 'skills.tooling',
     skills: [
       { name: 'Git', rate: 9 },
       { name: 'Vite', rate: 8 },
@@ -47,11 +48,21 @@ const SKILLS_GROUPS = [
 ];
 
 export const SkillsContent: FC<SkillsContentProps> = memo(({ children, ...props }) => {
+  const { t } = useI18n();
+
+  // Translate skill group titles
+  const translatedGroups = useMemo(() => {
+    return SKILLS_GROUPS.map((group) => ({
+      ...group,
+      title: t(group.titleKey),
+    }));
+  }, [t]);
+
   return (
     <Stack className="skills__content" height={'100%'} textAlign="center" {...props}>
       {/* START: Header */}
       <Text variant="title">
-        My Skills
+        {t('skills.title')}
       </Text>
       {/* END: Header */}
 
@@ -68,9 +79,9 @@ export const SkillsContent: FC<SkillsContentProps> = memo(({ children, ...props 
           justifyItems="stretch"
           alignItems="start"
         >
-          {SKILLS_GROUPS.map((group) => (
+          {translatedGroups.map((group) => (
             <SkillsBox 
-              key={group.title}
+              key={group.titleKey}
               boxTitle={group.title} 
               data={group.skills}
               margin="0 auto"

@@ -3,6 +3,7 @@ import type { FC } from 'react';
 import { Stack, Text } from '@chakra-ui/react';
 import type { StackProps } from '@chakra-ui/react';
 
+import { useI18n } from '@/core/i18n';
 import { Timeline, ExperienceDrawer } from './organisms';
 
 /**
@@ -13,6 +14,7 @@ import { Timeline, ExperienceDrawer } from './organisms';
 export interface JourneyPageContentProps extends StackProps {}
 
 export const JourneyPageContent: FC<JourneyPageContentProps> = memo((props) => {
+  const { t } = useI18n();
 
   return (
     <>
@@ -24,7 +26,7 @@ export const JourneyPageContent: FC<JourneyPageContentProps> = memo((props) => {
       >
         {/* START: Header */}
         <Text variant="title">
-          Journey
+          {t('journey.title')}
         </Text>
         {/* END: Header */}
 

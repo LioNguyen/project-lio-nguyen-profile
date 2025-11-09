@@ -1,25 +1,35 @@
 import { Center, ContainerProps, Flex, Spacer, TabList, Tab } from '@chakra-ui/react'
 import type { FC } from 'react'
-import { memo } from 'react'
+import { memo, useMemo } from 'react'
 import { CgMenuMotion } from 'react-icons/cg'
 import { PiHouse } from 'react-icons/pi'
 import { useScrolling, useToggle } from 'react-minimist-utils'
 
 import { navItems } from '@/core/config/constants'
+import { useI18n } from '@/core/i18n'
+import { LanguageSwitcher } from '@/core/components/atoms'
 
 import * as S from './Navbar.styles'
 import { BottomNavbar } from '@/core/components/organisms/BottomNavbar'
 
 /**
  * Navbar Component
- * Main navigation bar with responsive behavior
+ * Main navigation bar with responsive behavior and i18n support
  */
 export interface NavbarProps extends ContainerProps {}
 
 export const Navbar: FC<NavbarProps> = memo((props) => {
   const [isShowBottomNavbar, toggleBottomNavbar] = useToggle(false)
   const isScrolling = useScrolling()
+  const { t } = useI18n()
 
+  // Translate navigation items
+  const translatedNavItems = useMemo(() => {
+    return navItems.map((item) => ({
+      ...item,
+      name: t(`nav.${item.value}` as const),
+    }))
+  }, [t])
 
   return (
     <S.Wrapper
@@ -58,9 +68,9 @@ export const Navbar: FC<NavbarProps> = memo((props) => {
           gap={{ base: 4, md: 6 }}
           position="relative"
         >
-          {navItems.map((item) => (
+          {translatedNavItems.map((item) => (
             <Tab
-              key={item.name}
+              key={item.value}
               _hover={{
                 color: 'default.titleDark',
                 opacity: 1,
@@ -99,20 +109,30 @@ export const Navbar: FC<NavbarProps> = memo((props) => {
               {item.name}
             </Tab>
           ))}
+          
+          {/* Language switcher for desktop */}
+          <LanguageSwitcher size="md" />
         </TabList>
 
-        <S.BottomNavbarMenuToggle
-          as="button"
+        {/* Mobile: Language Switcher + Menu Toggle */}
+        <Flex
+          alignItems="center"
           display={{ base: 'flex', sm: 'none' }}
-          onClick={toggleBottomNavbar}
+          gap={3}
         >
-          <CgMenuMotion size={20} />
-        </S.BottomNavbarMenuToggle>
+          <LanguageSwitcher size="sm" />
+          <S.BottomNavbarMenuToggle
+            as="button"
+            onClick={toggleBottomNavbar}
+          >
+            <CgMenuMotion size={20} />
+          </S.BottomNavbarMenuToggle>
+        </Flex>
       </Flex>
 
       <BottomNavbar
         display={{ base: 'block', sm: 'none' }}
-        navItems={navItems}
+        navItems={translatedNavItems}
         toggleModal={toggleBottomNavbar}
         transform={isShowBottomNavbar ? 'translateY(0px)' : 'translateY(200px)'}
       />

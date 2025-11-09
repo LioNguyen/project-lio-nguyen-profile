@@ -1,4 +1,3 @@
-import ProfileImage_1 from '@/shared/assets/images/profile_1.jpeg'
 import { Center, Container, ContainerProps, Divider, Image, Stack, Text } from '@chakra-ui/react'
 import { keyframes } from '@emotion/react'
 import type { FC } from 'react'
@@ -7,13 +6,15 @@ import { memo, useState } from 'react'
 // import { FaArrowDown } from 'react-icons/fa6'
 import { CgFileDocument } from 'react-icons/cg'
 // import { Hooks } from 'react-minimist-utils'
+import { motion } from 'framer-motion'
 import { Utils } from 'react-minimist-utils'
 import { TypeAnimation } from 'react-type-animation'
-import { motion } from 'framer-motion'
 
 import { CustomButton } from '@/core/components/atoms'
 import { SocialWidget } from '@/core/components/organisms'
-import { HAND_ICON_URL, CV_URL } from '@/core/config/constants'
+import { CV_URL, HAND_ICON_URL } from '@/core/config/constants'
+import { useI18n } from '@/core/i18n'
+import ProfileImage_1 from '@/shared/assets/images/profile_1.jpeg'
 
 /**
  * HomePage Component
@@ -48,9 +49,10 @@ const profileAnimation = `${profileAnimate} 8s ease-in-out infinite alternate;`
 
 export const HomePage: FC<HomePageProps> = memo((props) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false)
+  const { t, locale } = useI18n()
   // const { scrollTo} = Hooks.Window.useScrollTo()
 
-  const descriptionText = "Coding is not just a skill. It's my avenue for expressing creativity and turning ideas into reality.";
+  const descriptionText = t('home.description');
 
   return (
     <Container
@@ -86,7 +88,7 @@ export const HomePage: FC<HomePageProps> = memo((props) => {
             width="100%"
           >
             <Text variant="title" whiteSpace="nowrap">
-              Nghi Nguyen
+              {t('home.title')}
             </Text>
             <Image
               alt="hand-icon" 
@@ -110,8 +112,13 @@ export const HomePage: FC<HomePageProps> = memo((props) => {
               variant="subtitle"
               whiteSpace={{ base: 'unset', md: 'nowrap' }}
             >
-              Software Engineer (Frontend)
+              {t('home.subtitle')}
             </Text>
+            <Divider
+              borderBottomWidth={2}
+              display={{ base: 'none', md: 'block' }}
+              width={{ base: 0, sm: '50px' }}
+            />
           </Stack>
 
           <Text
@@ -119,6 +126,7 @@ export const HomePage: FC<HomePageProps> = memo((props) => {
             fontSize={{ base: 'sm', sm: 'md' }}
           >
             <TypeAnimation
+              key={locale}
               sequence={[descriptionText]}
               wrapper="span"
               speed={50}
@@ -142,9 +150,9 @@ export const HomePage: FC<HomePageProps> = memo((props) => {
             <CustomButton
               onClick={() => Utils.Data.downloadFile(CV_URL)}
               rightIcon={<CgFileDocument color="white" size={25} />}
-              transformOrigin="center"
+              /* transformOrigin="center" */
             >
-              Download CV
+              {t('common.downloadCV')}
             </CustomButton>
           </motion.div>
         </Stack>

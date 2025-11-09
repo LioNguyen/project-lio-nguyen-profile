@@ -6,5 +6,6 @@ export { HomePage } from './Home';
 export type { HomePageProps } from './Home';
 export { JourneyPage } from './Journey';
 export type { JourneyPageProps } from './Journey';
+export { ProjectsPage } from './Projects';
 export { SkillsPage } from './Skills';
 export type { SkillsPageProps } from './Skills';
