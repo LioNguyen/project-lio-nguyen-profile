@@ -29,6 +29,8 @@ export default tseslint.config(
         'warn',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
+      '@typescript-eslint/no-empty-object-type': 'off', // Allow empty interfaces for component props
+      '@typescript-eslint/ban-ts-comment': 'warn', // Allow @ts-ignore with warning
       // Import ordering (manual for now, can add eslint-plugin-import later)
       'sort-imports': [
         'warn',

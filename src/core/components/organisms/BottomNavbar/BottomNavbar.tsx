@@ -1,7 +1,7 @@
 import { Box, Container, ContainerProps, Flex, Stack, Tab, TabList, Text } from '@chakra-ui/react'
 import type { FC } from 'react'
 import { memo, useEffect, useRef } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import type { NavItem } from '@/core/config/constants'
 
@@ -38,7 +38,7 @@ const pathToIndex: Record<string, number> = {
 };
 
 export const BottomNavbar: FC<BottomNavbarProps> = memo(
-  ({ children, navItems, toggleModal, isOpen, ...props }) => {
+  ({ navItems, toggleModal, isOpen, ...props }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const containerRef = useRef<HTMLDivElement>(null);
@@ -52,7 +52,9 @@ export const BottomNavbar: FC<BottomNavbarProps> = memo(
         navigate(path);
       }
       // Close the modal after navigation
-      toggleModal && toggleModal();
+      if (toggleModal) {
+        toggleModal();
+      }
     };
 
     /**
@@ -75,7 +77,9 @@ export const BottomNavbar: FC<BottomNavbarProps> = memo(
           // Also check if click is not on the menu toggle button
           const menuToggle = document.querySelector('[aria-label="menu-toggle"]') as HTMLElement;
           if (menuToggle && !menuToggle.contains(target)) {
-            toggleModal && toggleModal();
+            if (toggleModal) {
+              toggleModal();
+            }
           }
         }
       };
