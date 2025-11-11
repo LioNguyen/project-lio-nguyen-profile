@@ -1,42 +1,106 @@
 import { Box, Container, ContainerProps, Flex, Stack, Tab, TabList, Text } from '@chakra-ui/react'
 import type { FC } from 'react'
-import { memo } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { memo, useEffect, useRef } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 import type { NavItem } from '@/core/config/constants'
 
 /**
  * BottomNavbar Component
  * Mobile navigation menu that slides up from bottom
+ * Features:
+ * - Proper routing integration
+ * - Auto-close on outside click
+ * - Active state tracking
  */
 export interface BottomNavbarProps extends ContainerProps {
   navItems: NavItem[]
   toggleModal?: () => void
+  isOpen?: boolean
 }
 
-// Map section names to tab indices
-const sectionToIndex: Record<string, number> = {
-  home: 0,
-  skills: 1,
-  journey: 2,
-  projects: 3,
-  about: 4,
+// Map section values to paths
+const valueToPath: Record<string, string> = {
+  home: '/',
+  skills: '/skills',
+  journey: '/journey',
+  projects: '/projects',
+  about: '/about',
+};
+
+// Map paths to tab indices
+const pathToIndex: Record<string, number> = {
+  '/': 0,
+  '/skills': 1,
+  '/journey': 2,
+  '/projects': 3,
+  '/about': 4,
 };
 
 export const BottomNavbar: FC<BottomNavbarProps> = memo(
-  ({ children, navItems, toggleModal, ...props }) => {
-    const [searchParams, setSearchParams] = useSearchParams();
+  ({ children, navItems, toggleModal, isOpen, ...props }) => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const containerRef = useRef<HTMLDivElement>(null);
 
-    const handleNavigation = (_index: number, sectionName: string) => {
-      setSearchParams({ p: sectionName });
+    /**
+     * Handle navigation to different pages
+     */
+    const handleNavigation = (_index: number, sectionValue: string) => {
+      const path = valueToPath[sectionValue];
+      if (path) {
+        navigate(path);
+      }
+      // Close the modal after navigation
       toggleModal && toggleModal();
     };
 
-    const currentPage = searchParams.get('p') || 'home';
-    const activeTabIndex = sectionToIndex[currentPage] || 0;
+    /**
+     * Get active tab index based on current route
+     */
+    const currentPath = location.pathname;
+    const activeTabIndex = pathToIndex[currentPath] ?? 0;
+
+    /**
+     * Handle click outside to close the navbar
+     */
+    useEffect(() => {
+      if (!isOpen) return;
+
+      const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+        const target = event.target as Node;
+        
+        // Check if click is outside the bottom navbar container
+        if (containerRef.current && !containerRef.current.contains(target)) {
+          // Also check if click is not on the menu toggle button
+          const menuToggle = document.querySelector('[aria-label="menu-toggle"]') as HTMLElement;
+          if (menuToggle && !menuToggle.contains(target)) {
+            toggleModal && toggleModal();
+          }
+        }
+      };
+
+      // Add event listener with a small delay to prevent immediate closing
+      const timeoutId = setTimeout(() => {
+        document.addEventListener('mousedown', handleClickOutside as EventListener);
+        document.addEventListener('touchstart', handleClickOutside as EventListener);
+      }, 100);
+
+      return () => {
+        clearTimeout(timeoutId);
+        document.removeEventListener('mousedown', handleClickOutside as EventListener);
+        document.removeEventListener('touchstart', handleClickOutside as EventListener);
+      };
+    }, [isOpen, toggleModal]);
 
     return (
-      <Container id="bottom-navbar" padding="15px 0" variant="bottomModalLayout" {...props}>
+      <Container 
+        ref={containerRef}
+        id="bottom-navbar" 
+        padding="15px 0" 
+        variant="bottomModalLayout" 
+        {...props}
+      >
         {/* Content section */}
         <TabList
           as={Flex}

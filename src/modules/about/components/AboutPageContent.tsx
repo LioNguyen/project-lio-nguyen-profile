@@ -1,10 +1,11 @@
 import { memo, useMemo } from 'react';
 import type { FC } from 'react';
-import { Stack, Text } from '@chakra-ui/react';
+import { Stack } from '@chakra-ui/react';
 import type { StackProps } from '@chakra-ui/react';
 
 import ProfileImage_2 from '@/shared/assets/images/profile_2.jpeg';
 import { useI18n } from '@/core/i18n';
+import { Title } from '@/core/components/atoms';
 import { AboutSection } from './organisms/AboutSection';
 
 /**
@@ -73,9 +74,9 @@ export const AboutPageContent: FC<AboutPageContentProps> = memo((props) => {
   return (
     <Stack className="about__content" height="100%" textAlign="center" {...props}>
       {/* START: Header */}
-      <Text variant="title">
+      <Title>
         {t('about.title')}
-      </Text>
+      </Title>
       {/* END: Header */}
 
       {/* START: Body */}

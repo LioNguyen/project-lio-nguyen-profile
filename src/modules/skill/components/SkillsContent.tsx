@@ -1,8 +1,9 @@
 import { memo, useMemo } from 'react';
 import type { FC, HTMLAttributes } from 'react';
-import { SimpleGrid, Stack, Text } from '@chakra-ui/react';
+import { SimpleGrid, Stack } from '@chakra-ui/react';
 
 import { useI18n } from '@/core/i18n';
+import { Title } from '@/core/components/atoms';
 import { SkillsBox } from './organisms';
 
 export interface SkillsContentProps extends HTMLAttributes<HTMLDivElement> {}
@@ -61,9 +62,9 @@ export const SkillsContent: FC<SkillsContentProps> = memo(({ children, ...props 
   return (
     <Stack className="skills__content" height={'100%'} textAlign="center" {...props}>
       {/* START: Header */}
-      <Text variant="title">
+      <Title>
         {t('skills.title')}
-      </Text>
+      </Title>
       {/* END: Header */}
 
       {/* START: Body */}

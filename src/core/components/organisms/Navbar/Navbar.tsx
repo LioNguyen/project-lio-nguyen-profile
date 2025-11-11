@@ -123,6 +123,7 @@ export const Navbar: FC<NavbarProps> = memo((props) => {
           <LanguageSwitcher size="sm" />
           <S.BottomNavbarMenuToggle
             as="button"
+            aria-label="menu-toggle"
             onClick={toggleBottomNavbar}
           >
             <CgMenuMotion size={20} />
@@ -134,6 +135,7 @@ export const Navbar: FC<NavbarProps> = memo((props) => {
         display={{ base: 'block', sm: 'none' }}
         navItems={translatedNavItems}
         toggleModal={toggleBottomNavbar}
+        isOpen={isShowBottomNavbar}
         transform={isShowBottomNavbar ? 'translateY(0px)' : 'translateY(200px)'}
       />
     </S.Wrapper>

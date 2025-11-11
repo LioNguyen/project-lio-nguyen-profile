@@ -1,6 +1,6 @@
 import { ChakraProvider, extendTheme, Tabs, TabPanels, TabPanel } from '@chakra-ui/react';
-import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useState, useEffect, type ComponentType } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { QueryProvider } from '@/core/services';
 import { Navbar } from '@/core/components/organisms/Navbar';
@@ -23,42 +23,81 @@ const theme = extendTheme({
   },
 });
 
-// Map section names to tab indices
-const sectionToIndex: Record<string, number> = {
-  home: 0,
-  skills: 1,
-  journey: 2,
-  projects: 3,
-  about: 4,
-};
+/**
+ * Tab Configuration Interface
+ */
+interface TabConfig {
+  path: string;
+  component: ComponentType;
+  key: string;
+}
 
-const indexToSection: Record<number, string> = {
-  0: 'home',
-  1: 'skills',
-  2: 'journey',
-  3: 'projects',
-  4: 'about',
-};
+/**
+ * Tab configuration array
+ * Maps routes to their corresponding page components
+ */
+const TAB_CONFIG: TabConfig[] = [
+  {
+    path: '/',
+    component: HomePage,
+    key: 'home',
+  },
+  {
+    path: '/skills',
+    component: SkillsPage,
+    key: 'skills',
+  },
+  {
+    path: '/journey',
+    component: JourneyPage,
+    key: 'journey',
+  },
+  {
+    path: '/projects',
+    component: ProjectsPage,
+    key: 'projects',
+  },
+  {
+    path: '/about',
+    component: AboutPage,
+    key: 'about',
+  },
+];
+
+/**
+ * Create path-to-index and index-to-path mappings from TAB_CONFIG
+ */
+const pathToIndex = TAB_CONFIG.reduce<Record<string, number>>((acc, tab, index) => {
+  acc[tab.path] = index;
+  return acc;
+}, {});
+
+const indexToPath = TAB_CONFIG.reduce<Record<number, string>>((acc, tab, index) => {
+  acc[index] = tab.path;
+  return acc;
+}, {});
 
 function App() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const location = useLocation();
   // State to control the active tab
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
-  // Read URL param on mount and when it changes
+  // Read URL path on mount and when it changes
   useEffect(() => {
-    const page = searchParams.get('p');
-    if (page && sectionToIndex[page] !== undefined) {
-      setActiveTabIndex(sectionToIndex[page]);
+    const currentPath = location.pathname;
+    const tabIndex = pathToIndex[currentPath];
+    if (tabIndex !== undefined) {
+      setActiveTabIndex(tabIndex);
     }
-  }, [searchParams]);
+  }, [location.pathname]);
 
-  // Handle tab change and update URL
+  // Handle tab change and update URL path
   const handleTabChange = (index: number) => {
     setActiveTabIndex(index);
-    const sectionName = indexToSection[index];
-    if (sectionName) {
-      setSearchParams({ p: sectionName });
+    const path = indexToPath[index];
+    if (path) {
+      navigate(path);
     }
   };
 
@@ -70,21 +109,14 @@ function App() {
           <Navbar />
           <AppContainer>
             <TabPanels>
-              <TabPanel p={0}>
-                <HomePage key={`home-${activeTabIndex === 0 ? Date.now() : 0}`} />
-              </TabPanel>
-              <TabPanel p={0}>
-                <SkillsPage key={`skills-${activeTabIndex === 1 ? Date.now() : 0}`} />
-              </TabPanel>
-              <TabPanel p={0}>
-                <JourneyPage key={`qualification-${activeTabIndex === 2 ? Date.now() : 0}`} />
-              </TabPanel>
-              <TabPanel p={0}>
-                <ProjectsPage key={`projects-${activeTabIndex === 3 ? Date.now() : 0}`} />
-              </TabPanel>
-              <TabPanel p={0}>
-                <AboutPage key={`about-${activeTabIndex === 4 ? Date.now() : 0}`} />
-              </TabPanel>
+              {TAB_CONFIG.map((tab, index) => {
+                const Component = tab.component;
+                return (
+                  <TabPanel key={tab.key} p={0}>
+                    <Component key={`${tab.key}-${activeTabIndex === index ? Date.now() : 0}`} />
+                  </TabPanel>
+                );
+              })}
             </TabPanels>
           </AppContainer>
         </Tabs>

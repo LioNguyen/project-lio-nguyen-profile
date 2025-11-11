@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Badge,
   Box,
   Flex,
   Text,
@@ -9,6 +8,7 @@ import {
 
 import { BaseDrawer } from '@/core/components/molecules/BaseDrawer';
 import { useDrawerStore } from '@/shared/store';
+import { TimeBadge, TypeBadge, TechStackBadge } from '../../molecules';
 
 /**
  * ExperienceDrawer - Slide-out panel displaying work experience details
@@ -55,31 +55,12 @@ export const ExperienceDrawer: React.FC = () => {
       <VStack align="stretch" spacing={{ base: 4, md: 6 }}>
         {/* Badges at top of drawer body - compact */}
         <Flex gap={{ base: 1, md: 1.5 }} flexWrap="wrap" mb={-2}>
-          <Box
-            display="inline-block"
-            bg="gray.700"
-            color="white"
-            fontSize={{ base: 'xs', md: 'xs' }}
-            fontWeight="semibold"
-            px={{ base: 2, md: 2.5 }}
-            py={{ base: 0.5, md: 1 }}
-            borderRadius="full"
-          >
+          <TimeBadge fontSize={{ base: 'xs', md: 'xs' }} px={{ base: 2, md: 2.5 }} py={{ base: 0.5, md: 1 }}>
             {time}
-          </Box>
-          <Box
-            display="inline-block"
-            bg={type === 'freelance' ? 'blue.600' : 'gray.800'}
-            color="white"
-            fontSize={{ base: 'xs', md: 'xs' }}
-            fontWeight="semibold"
-            px={{ base: 2, md: 2.5 }}
-            py={{ base: 0.5, md: 1 }}
-            borderRadius="full"
-            textTransform="capitalize"
-          >
+          </TimeBadge>
+          <TypeBadge type={type} fontSize={{ base: 'xs', md: 'xs' }} px={{ base: 2, md: 2.5 }} py={{ base: 0.5, md: 1 }}>
             {type}
-          </Box>
+          </TypeBadge>
         </Flex>
 
         {/* Key Achievements Section */}
@@ -125,19 +106,9 @@ export const ExperienceDrawer: React.FC = () => {
             </Text>
             <Flex flexWrap="wrap" gap={{ base: 1.5, md: 2 }}>
               {techStackArray.map((tech, index) => (
-                <Badge
-                  key={index}
-                  colorScheme="gray"
-                  bg="gray.700"
-                  color="white"
-                  px={{ base: 2, md: 2.5 }}
-                  py={{ base: 0.5, md: 1 }}
-                  borderRadius="full"
-                  fontSize={{ base: 'xs', md: 'xs' }}
-                  fontWeight="medium"
-                >
+                <TechStackBadge key={index}>
                   {tech}
-                </Badge>
+                </TechStackBadge>
               ))}
             </Flex>
           </Box>

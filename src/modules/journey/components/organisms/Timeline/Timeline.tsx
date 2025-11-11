@@ -12,6 +12,7 @@ import type { FC, HTMLAttributes } from 'react'
 
 import { useDrawerStore, type ExperienceItem } from '@/shared/store'
 import { useI18n } from '@/core/i18n'
+import { TimeBadge, TypeBadge } from '../../molecules'
 
 /**
  * Timeline Component
@@ -134,33 +135,12 @@ export const Timeline: FC<TimelineProps> = memo(({ className = '', ...props }) =
                 zIndex={1}
                 flexDirection={{ base: 'row', sm: 'row' }}
               >
-                <Box
-                  display="inline-block"
-                  bg="gray.700"
-                  color="white"
-                  fontSize={{ base: '9px', sm: '10px', md: '11px' }}
-                  fontWeight="semibold"
-                  px={{ base: 1.5, sm: 2 }}
-                  py={0.5}
-                  borderRadius="full"
-                  boxShadow="md"
-                >
+                <TimeBadge>
                   {item.time}
-                </Box>
-                <Box
-                  display="inline-block"
-                  bg={item.type === 'freelance' ? 'blue.600' : 'gray.800'}
-                  color="white"
-                  fontSize={{ base: '8px', sm: '9px', md: '10px' }}
-                  fontWeight="semibold"
-                  px={{ base: 1.5, sm: 1.5 }}
-                  py={0.5}
-                  borderRadius="full"
-                  textTransform="capitalize"
-                  boxShadow="md"
-                >
+                </TimeBadge>
+                <TypeBadge type={item.type}>
                   {t(`journey.${item.type}`)}
-                </Box>
+                </TypeBadge>
               </Box>
 
               <Card

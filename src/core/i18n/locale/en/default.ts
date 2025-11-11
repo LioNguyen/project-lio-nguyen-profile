@@ -165,8 +165,23 @@ const defaultTranslations = {
 
   // Projects Page
   projects: {
+    title: 'My Projects',
     comingSoonTitle: 'Coming Soon',
     comingSoonDescription: 'This section is currently under development.',
+    viewProject: 'View Project',
+    viewGithub: 'View GitHub',
+    
+    // Project 1 - AI Note
+    aiNote: {
+      title: 'AI Note',
+      description: 'An intelligent note-taking app with AI integration, built with OpenAI, Pinecone, Next.js, Shadcn UI, Clerk, and more.',
+    },
+    
+    // Project 2 - Movie Browser
+    movieBrowser: {
+      title: 'Movie Browser',
+      description: 'A movie browsing application with TMDB API integration, featuring search, filtering between Now Playing and Top Rated movies, detailed movie views with ratings and statistics, and responsive design with both grid and list views.',
+    },
   },
 
   // About Page

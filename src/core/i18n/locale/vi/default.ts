@@ -165,8 +165,23 @@ const defaultTranslations = {
 
   // Projects Page
   projects: {
+    title: 'Dự Án Của Tôi',
     comingSoonTitle: 'Sắp Ra Mắt',
     comingSoonDescription: 'Phần này đang trong quá trình phát triển.',
+    viewProject: 'Xem Dự án',
+    viewGithub: 'Xem GitHub',
+    
+    // Project 1 - AI Note
+    aiNote: {
+      title: 'AI Note',
+      description: 'Ứng dụng ghi chú thông minh với tích hợp AI, được xây dựng với OpenAI, Pinecone, Next.js, Shadcn UI, Clerk và nhiều công nghệ khác.',
+    },
+    
+    // Project 2 - Movie Browser
+    movieBrowser: {
+      title: 'Movie Browser',
+      description: 'Ứng dụng duyệt phim với tích hợp TMDB API, bao gồm tính năng tìm kiếm, lọc giữa các phim Đang Chiếu và Được Đánh Giá Cao, xem chi tiết phim với đánh giá và thống kê, và thiết kế responsive với cả chế độ lưới và danh sách.',
+    },
   },
 
   // About Page

@@ -1,9 +1,10 @@
 import { memo } from 'react';
 import type { FC } from 'react';
-import { Stack, Text } from '@chakra-ui/react';
+import { Stack } from '@chakra-ui/react';
 import type { StackProps } from '@chakra-ui/react';
 
 import { useI18n } from '@/core/i18n';
+import { Title } from '@/core/components/atoms';
 import { Timeline, ExperienceDrawer } from './organisms';
 
 /**
@@ -25,9 +26,9 @@ export const JourneyPageContent: FC<JourneyPageContentProps> = memo((props) => {
         {...props}
       >
         {/* START: Header */}
-        <Text variant="title">
+        <Title>
           {t('journey.title')}
-        </Text>
+        </Title>
         {/* END: Header */}
 
         {/* START: Body */}

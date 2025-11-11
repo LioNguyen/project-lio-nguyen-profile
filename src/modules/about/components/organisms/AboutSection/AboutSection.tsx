@@ -42,8 +42,8 @@ export const AboutSection: FC<AboutSectionProps> = memo(({
       gap={6}
       height={{ base: 'fit-content' }}
       direction="column"
-      alignItems={{ base: 'center', md: 'flex-start' }}
-      textAlign={{ base: 'center', md: 'left' }}
+      alignItems={{ base: 'flex-start', md: 'flex-start' }}
+      textAlign={{ base: 'justify', md: 'justify' }}
       {...props}
     >
       {/* Top Section: Image + First Paragraph */}
@@ -81,17 +81,17 @@ export const AboutSection: FC<AboutSectionProps> = memo(({
         {remainingParagraphs.map((paragraph, index) => (
           <Box
             key={index}
-            p={{ base: 4, md: 6 }}
-            borderRadius="lg"
-            borderLeft="3px solid"
-            borderColor="gray.400"
-            _dark={{ borderColor: 'gray.600' }}
-            transition="all 0.3s ease"
-            _hover={{
-              bg: { base: 'gray.100', md: 'gray.100' },
-              _dark: { bg: 'gray.800' },
-              boxShadow: 'md'
-            }}
+            // p={{ base: 4, md: 6 }}
+            // borderRadius="lg"
+            // borderLeft="3px solid"
+            // borderColor="gray.400"
+            // _dark={{ borderColor: 'gray.600' }}
+            // transition="all 0.3s ease"
+            // _hover={{
+            //   bg: { base: 'gray.100', md: 'gray.100' },
+            //   _dark: { bg: 'gray.800' },
+            //   boxShadow: 'md'
+            // }}
           >
             <SectionText 
               highlights={highlights}
