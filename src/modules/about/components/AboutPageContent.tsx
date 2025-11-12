@@ -6,7 +6,7 @@ import type { StackProps } from '@chakra-ui/react';
 import ProfileImage_2 from '@/shared/assets/images/profile_2.jpeg';
 import { useI18n } from '@/core/i18n';
 import { Title } from '@/core/components/atoms';
-import { AboutSection } from './organisms/AboutSection';
+import { AboutSection, ContactSection } from './organisms';
 
 /**
  * AboutPageContent Component
@@ -93,6 +93,10 @@ export const AboutPageContent: FC<AboutPageContentProps> = memo((props) => {
         />
       </Stack>
       {/* END: Body */}
+
+      {/* START: Contact Section */}
+      <ContactSection marginTop="60px" />
+      {/* END: Contact Section */}
     </Stack>
   );
 });

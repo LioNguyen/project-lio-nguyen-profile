@@ -104,7 +104,7 @@ const defaultTranslations = {
     evehr: {
       title: 'Frontend Software Engineer',
       subtitle: 'EveHR',
-      time: 'Mar 2020 - Feb 2024',
+      time: 'Oct 2021 - Feb 2024',
       detail1: 'Modernized web and mobile platforms for multinational clients including Bosch, Highland, PwC, AIA, BAT, DHL, Nestlé, Pepsi.',
       detail2: 'Architected white-label SaaS platform with dynamic theming, modular routing, and multi-tenant authentication.',
       detail3: 'Migrated entire frontend from JavaScript to TypeScript, cutting runtime errors by 40%.',
@@ -189,13 +189,23 @@ const defaultTranslations = {
     title: 'About Me',
     paragraph1: 'During high school, I was part of the Informatics Talent Team at Trần Đại Nghĩa, one of Vietnam\'s top specialized schools. I reached the Olympic finals in programming competitions and earned my Microsoft Office Specialist certification. But when it came time for university, I chose a different path — studying Accounting & Auditing at Ho Chi Minh University of Banking. I thought I was being practical, choosing safety over passion.',
     
-    paragraph2: 'For nearly 4 years, I worked as an accountant. The work was stable, but every day I felt the gap between what I was doing and what I wanted to do growing wider. I watched developers create products that touched millions while I reconciled spreadsheets. The fear of starting over at 26, with no formal CS degree, almost stopped me. "Am I too late? Can I really do this?" — these questions haunted me.',
+    paragraph2: 'For nearly 4 years, I worked as an accountant. The work was stable, but every day I felt the gap between what I was doing and what I wanted to do growing wider. I watched developers create products that touched millions while I reconciled spreadsheets. The fear of starting over at 27, with no formal CS degree, almost stopped me. "Am I too late? Can I really do this?" — these questions haunted me.',
     
-    paragraph3: 'In 2020, I made the hardest decision of my life: I taught myself programming from zero. The first months were brutal. I spent nights debugging code that seemed impossible, watching tutorials on repeat, feeling like everyone else understood something I didn\'t. There were moments I wanted to quit — when a single bug took days to fix, when interviews rejected me for "lack of experience," when I questioned if I\'d wasted years on the wrong path.',
+    paragraph3: 'In 2021, I made the hardest decision of my life: I taught myself programming from zero. The first months were brutal. I spent nights debugging code that seemed impossible, watching tutorials on repeat, feeling like everyone else understood something I didn\'t. There were moments I wanted to quit — when a single bug took days to fix, when interviews rejected me for "lack of experience," when I questioned if I\'d wasted years on the wrong path.',
     
     paragraph4: 'But I kept going. My accounting background, the thing I thought was a disadvantage, became my strength. I understood business requirements, user workflows, and system reliability in ways bootcamp grads didn\'t. I learned to break down complex problems into smaller pieces — the same skill I used balancing books. Slowly, one small win at a time, I built confidence. Each solved bug, each working feature, each "aha!" moment proved I could do this.',
     
-    paragraph5: 'Today, 5+ years later, I architect enterprise solutions for global companies. But more importantly, I proved to myself that it\'s never too late. The journey from accounting to engineering wasn\'t about talent — it was about showing up every day, especially on days I didn\'t want to. If you\'re thinking about changing careers, learning something new, or chasing a dream that seems impossible: start messy, stay consistent, and trust the process. Your past doesn\'t limit you — it prepares you.',
+    paragraph5: 'Today, 4+ years later, I architect enterprise solutions for global companies. But more importantly, I proved to myself that it\'s never too late. The journey from accounting to engineering wasn\'t about talent — it was about showing up every day, especially on days I didn\'t want to. If you\'re thinking about changing careers, learning something new, or chasing a dream that seems impossible: start messy, stay consistent, and trust the process. Your past doesn\'t limit you — it prepares you.',
+  },
+
+  // Contact Page
+  contact: {
+    title: 'Contact',
+    subtitle: 'Let\'s Connect',
+    email: 'Email',
+    phone: 'Phone',
+    emailValue: 'lio.nguyen.work@gmail.com',
+    phoneValue: '+84 934 118 566',
   },
 } as const
 

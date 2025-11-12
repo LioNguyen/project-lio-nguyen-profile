@@ -33,7 +33,7 @@ export default tseslint.config(
       '@typescript-eslint/ban-ts-comment': 'warn', // Allow @ts-ignore with warning
       // Import ordering (manual for now, can add eslint-plugin-import later)
       'sort-imports': [
-        'warn',
+        'off',
         {
           ignoreCase: true,
           ignoreDeclarationSort: true,

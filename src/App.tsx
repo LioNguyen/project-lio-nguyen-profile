@@ -1,10 +1,10 @@
-import { ChakraProvider, extendTheme, Tabs, TabPanels, TabPanel } from '@chakra-ui/react';
-import { useState, useEffect, type ComponentType } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { ChakraProvider, extendTheme, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
+import { useEffect, useState, type ComponentType } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import { QueryProvider } from '@/core/services';
 import { Navbar } from '@/core/components/organisms/Navbar';
 import { AppContainer } from '@/core/components/templates/AppContainer';
+import { QueryProvider } from '@/core/services';
 import { AboutPage } from '@/pages/About';
 // import { ContactPage } from '@/pages/Contact';
 import { HomePage } from '@/pages/Home';

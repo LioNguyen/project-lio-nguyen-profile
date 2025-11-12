@@ -1,18 +1,14 @@
 import { 
   Box, 
-  Circle, 
-  Stack, 
-  Text, 
-  Card,
-  CardBody,
+  Stack,
 } from '@chakra-ui/react'
-import { Fragment, memo, useMemo } from 'react'
-import { motion } from 'framer-motion'
+import { Fragment, memo, useCallback, useMemo } from 'react'
 import type { FC, HTMLAttributes } from 'react'
 
 import { useDrawerStore, type ExperienceItem } from '@/shared/store'
 import { useI18n } from '@/core/i18n'
-import { TimeBadge, TypeBadge } from '../../molecules'
+import { JourneyCard } from '../../molecules'
+import { AnimatedCircle, AnimatedDivider } from '../../atoms'
 
 /**
  * Timeline Component
@@ -24,28 +20,34 @@ export interface TimelineProps extends HTMLAttributes<HTMLDivElement> {}
 // Base timeline data structure with translation keys
 const TIMELINE_DATA_KEYS = [
   {
-    key: 'riskoa',
-    type: 'freelance' as const,
-  },
-  {
     key: 'dnbsoft',
     type: 'fulltime' as const,
+    group: 1,
+  },
+  {
+    key: 'riskoa',
+    type: 'freelance' as const,
+    group: 1,
   },
   {
     key: 'evehr',
     type: 'fulltime' as const,
+    group: 2,
   },
   {
     key: 'jobhopin',
     type: 'freelance' as const,
+    group: 2,
   },
   {
     key: 'itlcorp',
     type: 'fulltime' as const,
+    group: 3,
   },
   {
     key: 'fram',
     type: 'fulltime' as const,
+    group: 4,
   },
 ]
 
@@ -78,169 +80,104 @@ export const Timeline: FC<TimelineProps> = memo(({ className = '', ...props }) =
     })
   }, [t])
 
-  const handleOpenDrawer = (index: number, item: ExperienceItem) => {
+  const handleOpenDrawer = useCallback((index: number, item: ExperienceItem) => {
     openExperienceDrawer(index, item)
-  }
+  }, [openExperienceDrawer])
 
-  const renderTimeline = () => {
-    const MotionBox = motion(Box)
+  // Group timeline items by group property
+  const groupedItems = useMemo(() => {
+    const groups: Array<Array<{ item: ExperienceItem; originalIndex: number; dataKey: typeof TIMELINE_DATA_KEYS[0] }>> = []
+    
+    TIMELINE_DATA.forEach((item, index) => {
+      const dataKey = TIMELINE_DATA_KEYS[index]
+      const groupIndex = dataKey.group - 1
+      
+      if (!groups[groupIndex]) {
+        groups[groupIndex] = []
+      }
+      
+      groups[groupIndex].push({ item, originalIndex: index, dataKey })
+    })
+    
+    return groups.filter(group => group.length > 0)
+  }, [TIMELINE_DATA])
 
-    return TIMELINE_DATA.map((item, index) => {
-      const isEven = index % 2 === 0
-      const itemDelay = index * itemDuration // Each item starts after previous one
+  // Memoize the rendering of all groups and cards for performance
+  const renderGroups = useMemo(() => {
+    let globalCardIndex = 0 // Track global card index across all groups
+    const dividerDuration = 0.4 // Duration for each divider animation
+    const dividerOverlap = 0.2 // Overlap time between consecutive dividers for smooth transition
+    
+    return groupedItems.map((group, groupIndex) => {
+      // Groups alternate sides: even groups on right, odd groups on left
+      const isGroupEven = groupIndex % 2 === 0
+      const startCardIndexForGroup = globalCardIndex // Remember where this group starts
+      
+      // Render cards for this group
+      const groupCards = group.map(({ item, originalIndex }, cardIndex) => {
+        const itemDelay = globalCardIndex * itemDuration // Same delay interval for all cards
+        const isLastCardInGroup = cardIndex === group.length - 1
+        
+        // Calculate divider delay: start when card appears + small delay
+        // Each subsequent divider starts before the previous one finishes (overlap)
+        const dividerDelay = itemDelay + 0.3 + (cardIndex * (dividerDuration - dividerOverlap))
+        
+        globalCardIndex++ // Increment for next card
 
-      return (
-        <Fragment key={`timeline-${index}`}>
-          <Box position="relative">
-            <Circle
-              as={motion.div}
-              key={`circle-${index}`}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              // @ts-ignore - motion component transition
-              transition={{
-                delay: itemDelay,
-                duration: 0.2,
-                ease: [0.4, 0, 0.2, 1],
-              }}
-              bg="gray.700"
-              size="15px"
-            />
-            {/* On mobile: timeline on left, card on right, badges above on left */}
-            {/* On desktop: alternating layout as before */}
-            <MotionBox
-              key={`content-${index}`}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 0.25,
-                delay: itemDelay + 0.1,
-                ease: [0.4, 0, 0.2, 1],
-              }}
-              position="absolute"
-              textAlign={{ base: 'left', sm: isEven ? 'right' : 'left' }}
-              top="-6px"
-              width={{ base: '280px', sm: '320px', md: '350px' }}
-              left={{ base: '25px', sm: isEven ? 'auto' : '30px' }}
-              right={{ base: 'auto', sm: isEven ? '30px' : 'auto' }}
-            >
-              {/* Floating badges - on left for mobile, positioned by isEven for desktop */}
-              <Box
-                position="absolute"
-                top="-8px"
-                left={{ base: '8px', sm: isEven ? 'auto' : '8px' }}
-                right={{ base: 'auto', sm: isEven ? '8px' : 'auto' }}
-                display="flex"
-                gap={1.5}
-                zIndex={1}
-                flexDirection={{ base: 'row', sm: 'row' }}
-              >
-                <TimeBadge>
-                  {item.time}
-                </TimeBadge>
-                <TypeBadge type={item.type}>
-                  {t(`journey.${item.type}`)}
-                </TypeBadge>
-              </Box>
-
-              <Card
-                cursor="pointer"
-                variant="outline"
-                size="sm"
-                borderRadius="12px"
-                transition="all 0.2s"
-                onClick={() => handleOpenDrawer(index, item)}
-                _hover={{
-                  boxShadow: 'lg',
-                  transform: 'translateY(-2px)',
-                }}
-              >
-                <CardBody padding={{ base: '10px', sm: '12px', md: '15px' }}>
-                  {/* Job title */}
-                  <Text
-                    color="default.titleDark"
-                    fontSize={{ base: '11px', sm: 'md', md: 'lg' }}
-                    fontWeight="bold"
-                    lineHeight={{ base: 1.3, sm: 1.4, md: 1.5 }}
-                    mt={{ base: '8px', sm: '10px' }} // Add top margin for badge spacing
-                  >
-                    {item.title}
-                  </Text>
-                  
-                  {/* Company name */}
-                  <Text
-                    color="default.text"
-                    fontSize={{ base: '9px', sm: 'xs', md: 'sm' }}
-                    lineHeight={{ base: 1.3, sm: 1.4, md: 1.5 }}
-                    marginTop={{ base: '3px', sm: '4px' }}
-                    fontWeight="medium"
-                  >
-                    {item.subtitle}
-                  </Text>
-
-                  {/* Preview lines with ellipsis */}
-                  {item.details && item.details.length > 0 && (
-                    <Box marginTop={{ base: '6px', sm: '8px' }}>
-                      <Text
-                        fontSize={{ base: '10px', sm: '12px', md: '14px' }}
-                        color="gray.600"
-                        lineHeight="1.4"
-                        noOfLines={2}
-                      >
-                        {item.details[0]}
-                        {item.details.length > 1 && ` ${item.details[1]}`}
-                      </Text>
-                      <Text
-                        fontSize={{ base: '8px', sm: '10px', md: '11px' }}
-                        color="blue.600"
-                        fontWeight="semibold"
-                        marginTop="2px"
-                        _hover={{ textDecoration: 'underline' }}
-                      >
-                        {t('journey.viewMore')}
-                      </Text>
-                    </Box>
-                  )}
-                </CardBody>
-              </Card>
-            </MotionBox>
-          </Box>
-
-          {index < TIMELINE_DATA.length - 1 && (
-            <Box position="relative" height={{base: "120px", md: "160px"}} width="2px" key={`divider-${index}`}>
-              {/* Background light line */}
-              <Box
-                position="absolute"
-                top="0"
-                left="0"
-                width="100%"
-                height="100%"
-                bg="gray.300"
-              />
-              {/* Animated dark line overlay */}
-              <MotionBox
-                key={`line-${index}`}
-                position="absolute"
-                top="0"
-                left="0"
-                width="100%"
-                height="100%"
-                bg="gray.700"
-                initial={{ scaleY: 0 }}
-                animate={{ scaleY: 1 }}
-                transition={{
-                  delay: itemDelay + 0.25,
-                  duration: 0.55,
-                  ease: [0.4, 0, 0.2, 1],
-                }}
-                style={{ transformOrigin: 'top' }}
+        return (
+          <Fragment key={`card-fragment-${originalIndex}`}>
+            <Box position="relative">
+              <JourneyCard
+                item={item}
+                index={originalIndex}
+                isEven={isGroupEven}
+                itemDelay={itemDelay}
+                onClick={() => handleOpenDrawer(originalIndex, item)}
               />
             </Box>
+
+            {/* Divider between cards in same group */}
+            {!isLastCardInGroup && (
+              <AnimatedDivider
+                delay={dividerDelay}
+                duration={dividerDuration}
+                height={{ base: "140px", md: "200px" }}
+                dividerKey={`divider-${originalIndex}`}
+              />
+            )}
+          </Fragment>
+        )
+      })
+
+      // Calculate when the last divider of this group finishes
+      const lastCardDelay = (globalCardIndex - 1) * itemDuration
+      const lastDividerInGroupDelay = lastCardDelay + 0.3 + ((group.length - 2) * (dividerDuration - dividerOverlap))
+      const groupDividerDelay = lastDividerInGroupDelay + dividerDuration - dividerOverlap // Start before last divider finishes
+
+      return (
+        <Fragment key={`group-${groupIndex}`}>
+          {/* Single Circle for the entire group with gradient animation */}
+          <AnimatedCircle
+            delay={startCardIndexForGroup * itemDuration}
+            circleKey={`circle-${groupIndex}`}
+          />
+
+          {/* Render cards */}
+          {groupCards}
+
+          {/* Divider between groups - only after the last card of each group */}
+          {groupIndex < groupedItems.length - 1 && (
+            <AnimatedDivider
+              delay={groupDividerDelay}
+              duration={dividerDuration}
+              height={{ base: "140px", md: "200px" }}
+              dividerKey={`group-divider-${groupIndex}`}
+            />
           )}
         </Fragment>
       )
     })
-  }
+  }, [groupedItems, handleOpenDrawer, itemDuration])
 
   return (
     <Stack
@@ -253,7 +190,7 @@ export const Timeline: FC<TimelineProps> = memo(({ className = '', ...props }) =
     >
       {/* Timeline content */}
       <Stack alignItems="center" gap={0} position="relative">
-        {renderTimeline()}
+        {renderGroups}
       </Stack>
     </Stack>
   )

@@ -8,7 +8,7 @@ import {
 
 import { BaseDrawer } from '@/core/components/molecules/BaseDrawer';
 import { useDrawerStore } from '@/shared/store';
-import { TimeBadge, TypeBadge, TechStackBadge } from '../../molecules';
+import { TimeBadge, TypeBadge, TechStackBadge } from '../../atoms';
 
 /**
  * ExperienceDrawer - Slide-out panel displaying work experience details

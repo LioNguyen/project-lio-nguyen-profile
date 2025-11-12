@@ -104,7 +104,7 @@ const defaultTranslations = {
     evehr: {
       title: 'Kỹ sư Phần mềm Frontend',
       subtitle: 'EveHR',
-      time: 'Tháng 3/2020 - Tháng 2/2024',
+      time: 'Tháng 10/2021 - Tháng 2/2024',
       detail1: 'Hiện đại hóa nền tảng web và mobile cho khách hàng đa quốc gia bao gồm Bosch, Highland, PwC, AIA, BAT, DHL, Nestlé, Pepsi.',
       detail2: 'Thiết kế nền tảng SaaS white-label với theming động, routing module và xác thực đa thuê bao.',
       detail3: 'Di chuyển toàn bộ frontend từ JavaScript sang TypeScript, giảm 40% runtime errors.',
@@ -189,13 +189,23 @@ const defaultTranslations = {
     title: 'Giới Thiệu',
     paragraph1: 'Những năm phổ thông, tôi là thành viên đội tuyển Tin học trường THPT chuyên Trần Đại Nghĩa. Tôi từng tham gia vòng chung kết kỳ thi Olympic Tin học, và cũng đạt được chứng chỉ Microsoft Office Specialist. Nhưng rồi, khi đứng trước ngã rẽ đại học, tôi đã chọn một con đường khác - Kế toán & Kiểm toán tại Đại học Ngân hàng TP.HCM. Lúc đó, tôi nghĩ mình đang thực tế, đang chọn sự an toàn thay vì đam mê.',
     
-    paragraph2: 'Gần 4 năm làm kế toán, công việc ổn định, thu nhập đều đặn. Nhưng mỗi ngày trôi qua, tôi cảm thấy khoảng cách giữa những gì mình đang làm và những gì mình thực sự muốn làm ngày càng xa xôi. Tôi nhìn các lập trình viên xây dựng những sản phẩm chạm đến hàng triệu con tim, trong khi mình chỉ đối chiếu từng dòng số liệu trên bảng tính. Nỗi sợ hãi về việc bắt đầu lại ở tuổi 26, không có bằng Khoa học Máy tính chính quy, gần như đã khiến tôi dừng bước. "Liệu có quá muộn? Liệu mình có thực sự làm được không?" - những câu hỏi ấy cứ ám ảnh tôi đêm này qua đêm khác.',
+    paragraph2: 'Gần 4 năm làm kế toán, công việc ổn định, thu nhập đều đặn. Nhưng mỗi ngày trôi qua, tôi cảm thấy khoảng cách giữa những gì mình đang làm và những gì mình thực sự muốn làm ngày càng xa xôi. Tôi nhìn các lập trình viên xây dựng những sản phẩm chạm đến hàng triệu con tim, trong khi mình chỉ đối chiếu từng dòng số liệu trên bảng tính. Nỗi sợ hãi về việc bắt đầu lại ở tuổi 27, không có bằng Khoa học Máy tính chính quy, gần như đã khiến tôi dừng bước. "Liệu có quá muộn? Liệu mình có thực sự làm được không?" - những câu hỏi ấy cứ ám ảnh tôi đêm này qua đêm khác.',
     
-    paragraph3: 'Năm 2020, tôi đã đưa ra quyết định khó khăn nhất trong đời: tự học lập trình từ con số không. Những tháng đầu quả thật tàn khốc. Tôi thức trắng từng đêm để debug những dòng code tưởng chừng như bất khả thi, xem đi xem lại tutorial đến tận mấy chục lần, mãi vẫn cảm giác như mình là người duy nhất chẳng hiểu gì cả. Có những khoảnh khắc tôi muốn buông xuôi - khi một bug đơn giản nhưng mất cả tuần mới sửa được, khi các buổi phỏng vấn liên tục từ chối vì "thiếu kinh nghiệm thực tế", khi tự hỏi liệu những năm tháng vừa qua có phải là một sự lãng phí?',
+    paragraph3: 'Năm 2021, tôi đã đưa ra quyết định khó khăn nhất trong đời: tự học lập trình từ con số không. Những tháng đầu quả thật tàn khốc. Tôi thức trắng từng đêm để debug những dòng code tưởng chừng như bất khả thi, xem đi xem lại tutorial đến tận mấy chục lần, mãi vẫn cảm giác như mình là người duy nhất chẳng hiểu gì cả. Có những khoảnh khắc tôi muốn buông xuôi - khi một bug đơn giản nhưng mất cả tuần mới sửa được, khi các buổi phỏng vấn liên tục từ chối vì "thiếu kinh nghiệm thực tế", khi tự hỏi liệu những năm tháng vừa qua có phải là một sự lãng phí?',
     
     paragraph4: 'Nhưng tôi không dừng lại. Và rồi, chính nền tảng kế toán - thứ mà tôi từng nghĩ là bất lợi - lại trở thành vũ khí bí mật của tôi. Tôi hiểu logic nghiệp vụ, quy trình người dùng, và độ tin cậy của hệ thống theo một cách mà những người học bootcamp thông thường không có. Tôi học được cách chia nhỏ vấn đề phức tạp thành từng mảnh ghép - đúng như kỹ năng tôi đã dùng để cân đối sổ sách. Từ từ, từng chiến thắng nhỏ một, tôi xây dựng lại niềm tin vào bản thân. Mỗi bug được giải quyết, mỗi tính năng chạy trơn tru, mỗi khoảnh khắc "eureka!" đều là minh chứng: tôi làm được!',
     
-    paragraph5: 'Hôm nay, sau hơn 5 năm, tôi đã chứng minh cho chính mình: không bao giờ là quá muộn để theo đuổi điều mình yêu thích. Hành trình từ kế toán sang công nghệ không phải về tài năng thiên bẩm - mà là về việc không bỏ cuộc, xuất hiện mỗi ngày, đặc biệt là những ngày tồi tệ nhất. Nếu bạn đang nghĩ đến việc chuyển nghề, học một điều gì đó mới mẻ, hay theo đuổi một giấc mơ tưởng chừng như viễn vông: hãy bắt đầu dù lộn xộn, hãy kiên trì dù khó khăn, và hãy tin vào quá trình. Quá khứ của bạn không giới hạn bạn - nó đang tôi luyện, chuẩn bị cho bạn để tỏa sáng.',
+    paragraph5: 'Hôm nay, sau hơn 4 năm, tôi đã chứng minh cho chính mình: không bao giờ là quá muộn để theo đuổi điều mình yêu thích. Hành trình từ kế toán sang công nghệ không phải về tài năng thiên bẩm - mà là về việc không bỏ cuộc, xuất hiện mỗi ngày, đặc biệt là những ngày tồi tệ nhất. Nếu bạn đang nghĩ đến việc chuyển nghề, học một điều gì đó mới mẻ, hay theo đuổi một giấc mơ tưởng chừng như viễn vông: hãy bắt đầu dù lộn xộn, hãy kiên trì dù khó khăn, và hãy tin vào quá trình. Quá khứ của bạn không giới hạn bạn - nó đang tôi luyện, chuẩn bị cho bạn để tỏa sáng.',
+  },
+
+  // Contact Page
+  contact: {
+    title: 'Liên Hệ',
+    subtitle: 'Hãy Kết Nối Với Tôi',
+    email: 'Email',
+    phone: 'Điện Thoại',
+    emailValue: 'lio.nguyen.work@gmail.com',
+    phoneValue: '+84 934 118 566',
   },
 } as const
 
