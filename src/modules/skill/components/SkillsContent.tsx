@@ -15,6 +15,7 @@ const SKILLS_GROUPS = [
     skills: [
       { name: 'React', rate: 9, level: 'expert' },
       { name: 'TypeScript', rate: 9, level: 'expert' },
+      { name: 'Next.js', rate: 6, level: 'familiar' },
       { name: 'React Native', rate: 3, level: 'familiar' },
     ],
   },

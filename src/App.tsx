@@ -12,6 +12,7 @@ import { JourneyPage } from '@/pages/Journey';
 import { ProjectsPage } from '@/pages/Projects';
 import { SkillsPage } from '@/pages/Skills';
 import { DefaultTheme, Fonts } from '@/styles';
+import { gtagEvent, gtagPageview } from '@/core/utils';
 
 const theme = extendTheme({
   breakpoints: DefaultTheme.breakpoints,
@@ -83,7 +84,26 @@ function App() {
   // State to control the active tab
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
-  // Read URL path on mount and when it changes
+
+  // Handle tab change and update URL path
+  const handleTabChange = (index: number) => {
+    setActiveTabIndex(index);
+    const path = indexToPath[index];
+    if (path) {
+      navigate(path);
+      // Track tab change
+      const tabKey = TAB_CONFIG[index]?.key;
+      if (tabKey) {
+        gtagEvent('tab_change', {
+          tab_name: tabKey,
+          tab_path: path,
+        });
+      }
+    }
+
+  };
+
+    // Read URL path on mount and when it changes
   useEffect(() => {
     const currentPath = location.pathname;
     const tabIndex = pathToIndex[currentPath];
@@ -92,14 +112,10 @@ function App() {
     }
   }, [location.pathname]);
 
-  // Handle tab change and update URL path
-  const handleTabChange = (index: number) => {
-    setActiveTabIndex(index);
-    const path = indexToPath[index];
-    if (path) {
-      navigate(path);
-    }
-  };
+  useEffect(() => {
+    gtagPageview(location.pathname + location.search);
+  }, [location]);
+
 
   return (
     <QueryProvider>

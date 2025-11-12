@@ -2,6 +2,8 @@ import { Box, Heading, Text, Image, Tag, Flex, useColorModeValue, IconButton, HS
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
+import { gtagEvent } from '@/core/utils';
+
 const MotionBox = motion(Box);
 
 export interface ProjectCardProps {
@@ -37,6 +39,10 @@ export const ProjectCard = ({ title, description, url, githubUrl, logoUrl, tags 
    * Handle card click - opens URL in new tab
    */
   const handleClick = () => {
+    gtagEvent('project_click', {
+      project_name: title,
+      link_type: 'project_url',
+    });
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
@@ -45,6 +51,10 @@ export const ProjectCard = ({ title, description, url, githubUrl, logoUrl, tags 
    */
   const handleGithubClick = (e: React.MouseEvent) => {
     e.stopPropagation();
+    gtagEvent('project_click', {
+      project_name: title,
+      link_type: 'github_url',
+    });
     if (githubUrl) {
       window.open(githubUrl, '_blank', 'noopener,noreferrer');
     }

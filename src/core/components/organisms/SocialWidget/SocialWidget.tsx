@@ -5,6 +5,7 @@ import { FaLinkedin } from 'react-icons/fa'
 import { FiGithub } from 'react-icons/fi'
 import type { FC, ReactNode } from 'react'
 
+import { gtagEvent } from '@/core/utils'
 import { useDevice } from '@/shared/hooks'
 
 /**
@@ -43,6 +44,13 @@ export const SocialWidget: FC<SocialWidgetProps> = memo((props) => {
     [isMobile]
   )
 
+  // Track social link click event
+  const handleSocialClick = (platform: string) => {
+    gtagEvent('social_link_click', {
+      platform: platform.toLowerCase(),
+    })
+  }
+
   return (
     <Stack
       bottom={{ base: '70%', sm: 0 }}
@@ -61,6 +69,7 @@ export const SocialWidget: FC<SocialWidgetProps> = memo((props) => {
           className="social-widget__item"
           href={item.href}
           isExternal
+          onClick={() => handleSocialClick(item.name)}
         >
           {item.icon}
         </Link>

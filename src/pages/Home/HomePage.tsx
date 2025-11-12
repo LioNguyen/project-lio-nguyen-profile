@@ -14,6 +14,7 @@ import { CustomButton } from '@/core/components/atoms'
 import { SocialWidget } from '@/core/components/organisms'
 import { CV_URL, HAND_ICON_URL } from '@/core/config/constants'
 import { useI18n } from '@/core/i18n'
+import { gtagEvent } from '@/core/utils'
 import ProfileImage_1 from '@/shared/assets/images/profile_1.jpeg'
 
 /**
@@ -148,7 +149,13 @@ export const HomePage: FC<HomePageProps> = memo((props) => {
             whileTap={{ scale: 0.95 }}
           >
             <CustomButton
-              onClick={() => Utils.Data.downloadFile(CV_URL)}
+              onClick={() => {
+                Utils.Data.downloadFile(CV_URL);
+                gtagEvent('cv_download', {
+                  action: 'click',
+                  location: 'home_page',
+                });
+              }}
               rightIcon={<CgFileDocument color="white" size={25} />}
               /* transformOrigin="center" */
             >
