@@ -35,6 +35,14 @@ export const ProjectsPageContent: FC<ProjectsPageContentProps> = memo((props) =>
       logoUrl: 'https://movie.lionguyen.com/vite.svg',
       tags: ['React', 'TypeScript', 'Redux', 'SCSS', 'TMDB API', 'Vite'],
     },
+    {
+      title: t('projects.reactMinimistUtils.title'),
+      description: t('projects.reactMinimistUtils.description'),
+      url: 'https://www.npmjs.com/package/react-minimist-utils',
+      githubUrl: 'https://github.com/LioNguyen/project-react-minimist-utils',
+      logoUrl: new URL('/src/shared/assets/images/npm-logo.png', import.meta.url).href,
+      tags: ['React', 'TypeScript', 'Utilities', 'Hooks', 'NPM Package'],
+    },
   ];
 
   return (

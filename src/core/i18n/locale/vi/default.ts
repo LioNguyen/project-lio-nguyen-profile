@@ -53,14 +53,27 @@ const defaultTranslations = {
   skills: {
     title: 'Kỹ Năng Của Tôi',
     frontendStack: 'Công nghệ Frontend',
+    frontendStackDesc: 'Công nghệ cốt lõi để xây dựng các ứng dụng web hiện đại',
+    advancedPatterns: 'Các Pattern Nâng cao',
+    advancedPatternsDesc: 'Các pattern kiến trúc nâng cao và kỹ thuật thiết kế component',
     stateDataLayer: 'Quản lý State & Dữ liệu',
+    stateDataLayerDesc: 'Giải pháp quản lý state hiệu quả và lấy dữ liệu',
     uiStyling: 'Giao diện & Styling',
+    uiStylingDesc: 'Hệ thống thiết kế và kiến trúc component',
     tooling: 'Công cụ',
+    toolingDesc: 'Công cụ phát triển và framework kiểm thử',
+    expertBadge: 'Chuyên gia: React, TypeScript, REST API, Tailwind CSS',
+    highlights: {
+      highlight1: 'Thiết kế component mở rộng & tái sử dụng',
+      highlight2: 'Tối ưu hóa hiệu suất & nâng cao hiệu quả',
+      highlight3: 'Hợp tác với team về thiết kế & triển khai',
+      highlight4: 'Viết code dễ bảo trì, dễ kiểm thử',
+    },
   },
 
   // Journey Page
   journey: {
-    title: 'Hành Trình',
+    title: 'Hành Trình của tôi',
     fulltime: 'toàn thời gian',
     freelance: 'tự do',
     viewMore: 'Xem thêm →',
@@ -181,6 +194,12 @@ const defaultTranslations = {
     movieBrowser: {
       title: 'Movie Browser',
       description: 'Ứng dụng duyệt phim với tích hợp TMDB API, bao gồm tính năng tìm kiếm, lọc giữa các phim Đang Chiếu và Được Đánh Giá Cao, xem chi tiết phim với đánh giá và thống kê, và thiết kế responsive với cả chế độ lưới và danh sách.',
+    },
+
+    // Project 3 - React Minimist Utils
+    reactMinimistUtils: {
+      title: 'React Minimist Utils',
+      description: 'Thư viện công cụ toàn diện cho ứng dụng React với hỗ trợ TypeScript. Bao gồm các hook thiết yếu (useToggle, useDebounce, useLocalStorage, v.v.), các hàm tiện ích (thao tác mảng, xử lý chuỗi, định dạng dữ liệu) và các hằng số để xác thực biểu mẫu.',
     },
   },
 

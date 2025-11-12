@@ -74,8 +74,8 @@
           "minH": { "base": "unset", "sm": "100vh" },
           "maxH": { "base": "unset" },
           "maxW": "100%",
-          "paddingTop": { "base": "30px", "sm": "70px" },
-          "paddingBottom": { "base": "50px", "sm": "70px" },
+          "paddingTop": { "base": "35px", "sm": "70px", "md": "100px" },
+          "paddingBottom": { "base": "15px", "sm": "35px", "md": "50px" },
           "position": "relative"
         }
       }

@@ -22,17 +22,17 @@ export interface BottomNavbarProps extends ContainerProps {
 // Map section values to paths
 const valueToPath: Record<string, string> = {
   home: '/',
-  skills: '/skills',
   journey: '/journey',
+  skills: '/skills',
   projects: '/projects',
   about: '/about',
 };
 
-// Map paths to tab indices
+// Map paths to tab indices (updated: journey is now index 1, skills is index 2)
 const pathToIndex: Record<string, number> = {
   '/': 0,
-  '/skills': 1,
-  '/journey': 2,
+  '/journey': 1,
+  '/skills': 2,
   '/projects': 3,
   '/about': 4,
 };

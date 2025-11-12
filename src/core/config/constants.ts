@@ -32,16 +32,16 @@ export const navItems: NavItem[] = [
     value: 'home',
   },
   {
-    icon: FaRegFileLines,
-    name: 'Skills',
-    href: '#skills',
-    value: 'skills',
-  },
-  {
     icon: HiOutlineBriefcase,
     name: 'Journey',
     href: '#journey',
     value: 'journey',
+  },
+  {
+    icon: FaRegFileLines,
+    name: 'Skills',
+    href: '#skills',
+    value: 'skills',
   },
   {
     icon: MdWorkOutline,

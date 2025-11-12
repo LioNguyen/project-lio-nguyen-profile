@@ -32,7 +32,7 @@ export const AboutPageContent: FC<AboutPageContentProps> = memo((props) => {
   // Keywords to highlight for inspiration
   const highlights = [
     // Background & Education (English)
-    'Informatics Talent Team', 'Trần Đại Nghĩa', 'Olympic finals',
+    'Informatics Talent Team', 'Trần Đại Nghĩa High School for the Gifted', 'Olympic finals',
     'Microsoft Office Specialist certification', 'Accounting & Auditing', 'Ho Chi Minh University of Banking',
     
     // Challenges & Emotions (English)

@@ -43,14 +43,14 @@ const TAB_CONFIG: TabConfig[] = [
     key: 'home',
   },
   {
-    path: '/skills',
-    component: SkillsPage,
-    key: 'skills',
-  },
-  {
     path: '/journey',
     component: JourneyPage,
     key: 'journey',
+  },
+  {
+    path: '/skills',
+    component: SkillsPage,
+    key: 'skills',
   },
   {
     path: '/projects',

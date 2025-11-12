@@ -53,14 +53,27 @@ const defaultTranslations = {
   skills: {
     title: 'My Skills',
     frontendStack: 'Frontend Stack',
+    frontendStackDesc: 'Core technologies for building modern web applications',
+    advancedPatterns: 'Advanced Patterns',
+    advancedPatternsDesc: 'Advanced architectural patterns and component design techniques',
     stateDataLayer: 'State & Data Layer',
+    stateDataLayerDesc: 'Efficient state management and data fetching solutions',
     uiStyling: 'UI & Styling',
+    uiStylingDesc: 'Design systems and component architecture',
     tooling: 'Tooling',
+    toolingDesc: 'Development tools and testing frameworks',
+    expertBadge: 'Expert: React, TypeScript, REST API, Tailwind CSS',
+    highlights: {
+      highlight1: 'Architecting scalable, reusable components',
+      highlight2: 'Optimizing performance & improving efficiency',
+      highlight3: 'Collaborating with teams on design & implementation',
+      highlight4: 'Building maintainable, testable code',
+    },
   },
 
   // Journey Page
   journey: {
-    title: 'Journey',
+    title: 'My Journey',
     fulltime: 'fulltime',
     freelance: 'freelance',
     viewMore: 'View more →',
@@ -182,12 +195,18 @@ const defaultTranslations = {
       title: 'Movie Browser',
       description: 'A movie browsing application with TMDB API integration, featuring search, filtering between Now Playing and Top Rated movies, detailed movie views with ratings and statistics, and responsive design with both grid and list views.',
     },
+
+    // Project 3 - React Minimist Utils
+    reactMinimistUtils: {
+      title: 'React Minimist Utils',
+      description: 'A comprehensive utility library for React applications with TypeScript support. Includes essential hooks (useToggle, useDebounce, useLocalStorage, etc.), utility functions (array operations, string manipulation, data formatting), and constants for form validation.',
+    },
   },
 
   // About Page
   about: {
     title: 'About Me',
-    paragraph1: 'During high school, I was part of the Informatics Talent Team at Trần Đại Nghĩa, one of Vietnam\'s top specialized schools. I reached the Olympic finals in programming competitions and earned my Microsoft Office Specialist certification. But when it came time for university, I chose a different path — studying Accounting & Auditing at Ho Chi Minh University of Banking. I thought I was being practical, choosing safety over passion.',
+    paragraph1: 'During high school, I was part of the Informatics Talent Team at Trần Đại Nghĩa High School for the Gifted, one of Vietnam\'s top specialized schools. I reached the Olympic finals in programming competitions and earned my Microsoft Office Specialist certification. But when it came time for university, I chose a different path — studying Accounting & Auditing at Ho Chi Minh University of Banking. I thought I was being practical, choosing safety over passion.',
     
     paragraph2: 'For nearly 4 years, I worked as an accountant. The work was stable, but every day I felt the gap between what I was doing and what I wanted to do growing wider. I watched developers create products that touched millions while I reconciled spreadsheets. The fear of starting over at 27, with no formal CS degree, almost stopped me. "Am I too late? Can I really do this?" — these questions haunted me.',
     
