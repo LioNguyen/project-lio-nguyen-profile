@@ -73,15 +73,19 @@ export const Navbar: FC<NavbarProps> = memo((props) => {
               key={item.value}
               _hover={{
                 color: 'default.titleDark',
+                fontWeight: "medium",
                 opacity: 1,
               }}
               _selected={{
                 color: 'default.titleDark',
+                fontWeight: "medium",
+                opacity: 1,
               }}
               className="navbar__item"
               color="default.title"
               height="32px"
               fontSize={{ base: 'sm', md: 'md' }}
+              opacity={0.8}
               transition="color 0.2s"
               position="relative"
               pb="2px"

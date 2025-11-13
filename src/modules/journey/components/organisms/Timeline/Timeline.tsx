@@ -184,7 +184,7 @@ export const Timeline: FC<TimelineProps> = memo(({ className = '', ...props }) =
       alignItems="center"
       className={`timeline ${className}`}
       gap={0}
-      padding="50px 0 100px"
+      padding="0 0 100px"
       position="relative"
       {...props}
     >
