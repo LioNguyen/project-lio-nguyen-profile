@@ -1,10 +1,10 @@
-import { memo, useMemo } from 'react';
-import type { FC, HTMLAttributes } from 'react';
 import { SimpleGrid, Stack, VStack } from '@chakra-ui/react';
+import type { FC, HTMLAttributes } from 'react';
+import { memo, useMemo } from 'react';
 
-import { useI18n } from '@/core/i18n';
 import { Title } from '@/core/components/atoms';
-import { SkillsHeader, SkillCard } from './organisms';
+import { useI18n } from '@/core/i18n';
+import { SkillCard } from './organisms';
 
 export interface SkillsContentProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -86,7 +86,7 @@ export const SkillsContent: FC<SkillsContentProps> = memo(({ ...props }) => {
         </Title>
         
         {/* Compact Expert Badge & Highlights */}
-        <SkillsHeader />
+        {/* <SkillsHeader /> */}
       </VStack>
       {/* END: Header */}
 

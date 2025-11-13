@@ -115,7 +115,7 @@ const defaultTranslations = {
     
     // Experience 3 - EveHR
     evehr: {
-      title: 'Kỹ sư Phần mềm Frontend',
+      title: 'Kỹ sư Phần mềm',
       subtitle: 'EveHR',
       time: 'Tháng 10/2021 - Tháng 2/2024',
       detail1: 'Hiện đại hóa nền tảng web và mobile cho khách hàng đa quốc gia bao gồm Bosch, Highland, PwC, AIA, BAT, DHL, Nestlé, Pepsi.',
@@ -131,7 +131,7 @@ const defaultTranslations = {
     
     // Experience 4 - JobHopin
     jobhopin: {
-      title: 'Kỹ sư Phần mềm Frontend',
+      title: 'Kỹ sư Phần mềm',
       subtitle: 'JobHopin',
       time: 'Tháng 7/2022 - Tháng 1/2023',
       detail1: 'Đóng góp vào phát triển frontend cho nền tảng JobHopin, tập trung vào xây dựng hệ thống UI có khả năng mở rộng, cải thiện hiệu suất và đảm bảo tính nhất quán thiết kế qua các dự án.',

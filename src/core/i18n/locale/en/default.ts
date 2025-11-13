@@ -115,7 +115,7 @@ const defaultTranslations = {
     
     // Experience 3 - EveHR
     evehr: {
-      title: 'Frontend Software Engineer',
+      title: 'Software Engineer',
       subtitle: 'EveHR',
       time: 'Oct 2021 - Feb 2024',
       detail1: 'Modernized web and mobile platforms for multinational clients including Bosch, Highland, PwC, AIA, BAT, DHL, Nestlé, Pepsi.',
@@ -131,7 +131,7 @@ const defaultTranslations = {
     
     // Experience 4 - JobHopin
     jobhopin: {
-      title: 'Frontend Software Engineer',
+      title: 'Software Engineer',
       subtitle: 'JobHopin',
       time: 'Jul 2022 - Jan 2023',
       detail1: 'Contributed to frontend development for JobHopin\'s platform, focusing on building scalable UI systems, improving performance, and ensuring design consistency across projects.',

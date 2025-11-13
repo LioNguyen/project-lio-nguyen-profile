@@ -23,10 +23,10 @@ export const SkillsHeader: FC<SkillsHeaderProps> = memo(({ ...props }) => {
         borderRadius="full"
         bg="rgba(0,0,0,0.08)"
         border="1px solid rgba(0,0,0,0.12)"
-        boxShadow="0 2px 4px rgba(0,0,0,0.04)"
+        boxShadow="0 2px 4px rgba(0,0,0,0.1)"
         mb={4}
       >
-        <Text fontSize={{ base: 'xs', md: 'sm' }} fontWeight="700" color="default.titleDark" whiteSpace="nowrap">
+        <Text fontSize={{ base: '12px', md: 'sm' }} fontWeight="700" color="default.titleDark" whiteSpace="nowrap">
           ⭐ {t('skills.expertBadge')}
         </Text>
       </Box>
@@ -38,6 +38,8 @@ export const SkillsHeader: FC<SkillsHeaderProps> = memo(({ ...props }) => {
         bg="rgba(0,0,0,0.02)"
         borderRadius="10px"
         border="1px solid rgba(0,0,0,0.06)"
+        boxShadow="0 2px 4px rgba(0,0,0,0.1)"
+        my={{ base: 2, md: 3 }}
         px={{ base: 2.5, md: 3 }}
         py={{ base: 2, md: 2.5 }}
         flexWrap="wrap"
