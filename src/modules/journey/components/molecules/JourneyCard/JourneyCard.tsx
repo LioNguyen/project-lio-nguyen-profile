@@ -3,10 +3,11 @@ import { motion } from 'framer-motion'
 import { memo, useMemo } from 'react'
 import type { FC } from 'react'
 import isEqual from 'lodash/isEqual'
+import { FaBriefcase, FaLaptopCode } from 'react-icons/fa'
 
 import { type ExperienceItem } from '@/shared/store'
 import { useI18n } from '@/core/i18n'
-import { TimeBadge, TypeBadge } from '../../atoms'
+import { TimeBadge } from '../../atoms'
 
 /**
  * JourneyCard Component
@@ -66,7 +67,6 @@ export const JourneyCard: FC<JourneyCardProps> = memo(({
           flexDirection={{ base: 'row', sm: 'row' }}
         >
           <TimeBadge>{item.time}</TimeBadge>
-          <TypeBadge type={item.type}>{t(`journey.${item.type}`)}</TypeBadge>
         </Box>
 
         <Card
@@ -76,11 +76,31 @@ export const JourneyCard: FC<JourneyCardProps> = memo(({
           borderRadius="12px"
           transition="all 0.2s"
           onClick={onClick}
+          bg={item.type === 'fulltime' ? 'whiteAlpha.900' : 'whiteAlpha.700'}
+          borderWidth={item.type === 'fulltime' ? '1.5px' : '1.5px'}
+          borderColor={item.type === 'fulltime' ? 'rgba(0,0,0,0.14)' : 'rgba(0,0,0,0.08)'}
+          borderLeftWidth={item.type === 'fulltime' ? '4px' : '1.5px'}
+          borderLeftColor={item.type === 'fulltime' ? 'rgba(0,0,0,0.4)' : 'rgba(0,0,0,0.08)'}
+          position="relative"
           _hover={{
-            boxShadow: 'lg',
+            boxShadow: item.type === 'fulltime' ? 'lg' : 'md',
             transform: 'translateY(-2px)',
+            borderColor: 'rgba(0,0,0,0.18)',
+            bg: item.type === 'fulltime' ? 'rgba(0,0,0,0.035)' : 'rgba(0,0,0,0.01)',
           }}
         >
+          {/* Type Icon in corner - opposite side of badge */}
+          <Box
+            position="absolute"
+            top={{ base: '10px', sm: '12px', md: '14px' }}
+            left={{ base: 'auto', sm: isEven ? '10px' : 'auto' }}
+            right={{ base: '10px', sm: isEven ? 'auto' : '10px' }}
+            opacity={item.type === 'fulltime' ? 0.4 : 0.3}
+            fontSize={{ base: '14px', sm: '16px', md: '18px' }}
+            color="default.titleDark"
+          >
+            {item.type === 'fulltime' ? <FaBriefcase /> : <FaLaptopCode />}
+          </Box>
           <CardBody padding={{ base: '10px', sm: '12px', md: '15px' }}>
             {/* Job title */}
             <Text
@@ -88,7 +108,7 @@ export const JourneyCard: FC<JourneyCardProps> = memo(({
               fontSize={{ base: '11px', sm: 'md', md: 'lg' }}
               fontWeight="bold"
               lineHeight={{ base: 1.3, sm: 1.4, md: 1.5 }}
-              mt={{ base: '8px', sm: '10px' }} // Add top margin for badge spacing
+              mt={{ base: '8px', sm: '10px' }}
             >
               {item.title}
             </Text>
@@ -106,24 +126,46 @@ export const JourneyCard: FC<JourneyCardProps> = memo(({
 
             {/* Preview lines with ellipsis */}
             {item.details && item.details.length > 0 && (
-              <Box marginTop={{ base: '6px', sm: '8px' }}>
-                <Text
-                  fontSize={{ base: '10px', sm: '12px', md: '14px' }}
-                  color="gray.600"
-                  lineHeight="1.4"
-                  noOfLines={2}
-                >
-                  {item.details[0]}
-                  {item.details.length > 1 && ` ${item.details[1]}`}
-                </Text>
+              <Box marginTop={{ base: '8px', sm: '10px' }}>
                 <Text
                   fontSize={{ base: '8px', sm: '10px', md: '11px' }}
                   color="blue.600"
                   fontWeight="semibold"
-                  marginTop="2px"
                   _hover={{ textDecoration: 'underline' }}
+                  cursor="pointer"
                 >
                   {t('journey.viewMore')}
+                </Text>
+              </Box>
+            )}
+
+            {/* Tech Stack */}
+            {item.techStack && (
+              <Box 
+                marginTop={{ base: '10px', sm: '12px', md: '14px' }}
+                paddingTop={{ base: '8px', sm: '10px', md: '12px' }}
+                borderTop="1px solid"
+                borderTopColor="rgba(0,0,0,0.08)"
+              >
+                <Text
+                  fontSize={{ base: '8px', sm: '9px', md: '10px' }}
+                  fontWeight="bold"
+                  color="default.titleDark"
+                  marginBottom={{ base: '4px', sm: '5px', md: '6px' }}
+                  textTransform="uppercase"
+                  letterSpacing="0.8px"
+                  opacity={0.9}
+                >
+                  Tech Stack
+                </Text>
+                <Text
+                  fontSize={{ base: '8px', sm: '10px', md: '11px' }}
+                  color="default.titleDark"
+                  lineHeight="1.5"
+                  fontWeight="600"
+                  opacity={0.85}
+                >
+                  {item.techStack}
                 </Text>
               </Box>
             )}

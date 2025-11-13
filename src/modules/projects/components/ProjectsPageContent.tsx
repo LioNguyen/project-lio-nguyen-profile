@@ -32,7 +32,7 @@ export const ProjectsPageContent: FC<ProjectsPageContentProps> = memo((props) =>
       description: t('projects.movieBrowser.description'),
       url: 'https://movie.lionguyen.com/',
       githubUrl: 'https://github.com/LioNguyen/project-movie',
-      logoUrl: 'https://movie.lionguyen.com/vite.svg',
+      logoUrl: 'https://movie.lionguyen.com/logo.png',
       tags: ['React', 'TypeScript', 'Redux', 'SCSS', 'TMDB API', 'Vite'],
     },
     {

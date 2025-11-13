@@ -141,7 +141,7 @@ export const Timeline: FC<TimelineProps> = memo(({ className = '', ...props }) =
               <AnimatedDivider
                 delay={dividerDelay}
                 duration={dividerDuration}
-                height={{ base: "140px", md: "200px" }}
+                height={{ base: "160px", md: "230px" }}
                 dividerKey={`divider-${originalIndex}`}
               />
             )}
@@ -170,7 +170,7 @@ export const Timeline: FC<TimelineProps> = memo(({ className = '', ...props }) =
             <AnimatedDivider
               delay={groupDividerDelay}
               duration={dividerDuration}
-              height={{ base: "140px", md: "200px" }}
+              height={{ base: "160px", md: "230px" }}
               dividerKey={`group-divider-${groupIndex}`}
             />
           )}

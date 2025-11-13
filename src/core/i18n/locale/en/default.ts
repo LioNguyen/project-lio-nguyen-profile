@@ -125,6 +125,7 @@ const defaultTranslations = {
       detail5: 'Built cross-platform code-sharing system (React Web + React Native) improving maintainability.',
       detail6: 'Optimized performance using Lazy Loading, Suspense, and memoization, reducing initial load by 30%.',
       detail7: 'Contributed to design system setup in Storybook, improving developer onboarding and UI consistency.',
+      detail8: 'Built mobile applications using Ionic Framework for iOS and Android, enabling code reuse across platforms.',
       techStack: 'React.js, JavaScript, TypeScript, React Native, Ionic Framework',
     },
     
@@ -193,7 +194,7 @@ const defaultTranslations = {
     // Project 2 - Movie Browser
     movieBrowser: {
       title: 'Movie Browser',
-      description: 'A movie browsing application with TMDB API integration, featuring search, filtering between Now Playing and Top Rated movies, detailed movie views with ratings and statistics, and responsive design with both grid and list views.',
+      description: 'A movie browsing application built with React and TypeScript. Features include TMDB API integration for Now Playing and Top Rated movies, advanced search with debounce, grid/list view switching, skeleton loading, lazy-loaded images with fallback handling, and comprehensive error handling with toast notifications.',
     },
 
     // Project 3 - React Minimist Utils

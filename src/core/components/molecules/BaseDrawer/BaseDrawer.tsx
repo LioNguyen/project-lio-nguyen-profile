@@ -74,7 +74,7 @@ export const BaseDrawer: React.FC<BaseDrawerProps> = ({
       <DrawerContent
         margin={{ base: 0, md: 4 }}
         maxHeight={{ base: '100vh', md: 'calc(100vh - 32px)' }}
-        borderRadius={{ base: 0, md: '16px' }}
+        borderRadius={{ base: '0 0 16px 0', md: '16px' }}
         boxShadow="2xl"
         bg="white"
         sx={{
@@ -108,7 +108,7 @@ export const BaseDrawer: React.FC<BaseDrawerProps> = ({
         {/* Header */}
         {header && (
           <DrawerHeader
-            py={{ base: 5, md: 6 }}
+            py={{ base: 3, md: 4 }}
             borderBottomWidth="1px"
             borderBottomColor="gray.200"
             borderTopRadius={{ base: 0, md: '16px' }}
@@ -127,8 +127,8 @@ export const BaseDrawer: React.FC<BaseDrawerProps> = ({
 
         {/* Body */}
         <DrawerBody 
-          py={{ base: 5, md: 6 }} 
-          borderBottomRadius={{ base: 0, md: '16px' }}
+          py={{ base: 4, md: 5 }} 
+          borderBottomRadius={{ base: '0 0 16px 0', md: '16px' }}
           px={{ base: 4, md: 5 }}
           {...bodyProps}
         >

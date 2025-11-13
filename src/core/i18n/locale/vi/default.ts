@@ -125,6 +125,7 @@ const defaultTranslations = {
       detail5: 'Xây dựng hệ thống chia sẻ code đa nền tảng (React Web + React Native) cải thiện khả năng bảo trì.',
       detail6: 'Tối ưu hóa hiệu suất sử dụng Lazy Loading, Suspense và memoization, giảm 30% thời gian tải ban đầu.',
       detail7: 'Đóng góp vào thiết lập design system trong Storybook, cải thiện onboarding developer và tính nhất quán UI.',
+      detail8: 'Xây dựng ứng dụng mobile sử dụng Ionic Framework cho iOS và Android, cho phép tái sử dụng code trên các nền tảng.',
       techStack: 'React.js, JavaScript, TypeScript, React Native, Ionic Framework',
     },
     
@@ -193,7 +194,7 @@ const defaultTranslations = {
     // Project 2 - Movie Browser
     movieBrowser: {
       title: 'Movie Browser',
-      description: 'Ứng dụng duyệt phim với tích hợp TMDB API, bao gồm tính năng tìm kiếm, lọc giữa các phim Đang Chiếu và Được Đánh Giá Cao, xem chi tiết phim với đánh giá và thống kê, và thiết kế responsive với cả chế độ lưới và danh sách.',
+      description: 'Ứng dụng duyệt phim được xây dựng với React và TypeScript. Bao gồm tích hợp TMDB API cho các phim Đang Chiếu và Được Đánh Giá Cao, tìm kiếm nâng cao với debounce, chuyển đổi chế độ xem lưới/danh sách, skeleton loading, lazy-loaded images với xử lý fallback, và xử lý lỗi toàn diện với toast notifications.',
     },
 
     // Project 3 - React Minimist Utils
