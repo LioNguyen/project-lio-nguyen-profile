@@ -24,8 +24,8 @@ export const ProjectsPageContent: FC<ProjectsPageContentProps> = memo((props) =>
       description: t('projects.aiNote.description'),
       url: 'https://ainote.lionguyen.com/',
       githubUrl: 'https://github.com/LioNguyen/project-ai-note',
-      logoUrl: 'https://ainote.lionguyen.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.7f62a9d8.png&w=128&q=75',
-      tags: ['Next.js', 'OpenAI', 'Pinecone', 'Shadcn UI', 'Clerk', 'TypeScript'],
+      logoUrl: 'https://ainote.lionguyen.com/logo.png',
+      tags: ['Next.js', 'React', 'TypeScript', 'Clerk', 'Pinecone', 'Google Gemini', 'Tailwind CSS', 'shadcn/ui'],
     },
     {
       title: t('projects.movieBrowser.title'),
@@ -33,7 +33,7 @@ export const ProjectsPageContent: FC<ProjectsPageContentProps> = memo((props) =>
       url: 'https://movie.lionguyen.com/',
       githubUrl: 'https://github.com/LioNguyen/project-movie',
       logoUrl: 'https://movie.lionguyen.com/logo.png',
-      tags: ['React', 'TypeScript', 'Redux', 'SCSS', 'TMDB API', 'Vite'],
+      tags: ['React', 'TypeScript', 'Redux', 'Redux-Saga', 'SCSS', 'TMDB API', 'Vite'],
     },
     {
       title: t('projects.reactMinimistUtils.title'),

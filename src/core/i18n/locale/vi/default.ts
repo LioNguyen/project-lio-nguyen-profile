@@ -188,7 +188,7 @@ const defaultTranslations = {
     // Project 1 - AI Note
     aiNote: {
       title: 'AI Note',
-      description: 'Ứng dụng ghi chú thông minh với tích hợp AI, được xây dựng với OpenAI, Pinecone, Next.js, Shadcn UI, Clerk và nhiều công nghệ khác.',
+      description: 'Ứng dụng ghi chú thông minh với tích hợp AI, được xây dựng với Google Generative AI, Pinecone, Next.js, Shadcn UI, Next Auth và nhiều công nghệ khác.',
     },
     
     // Project 2 - Movie Browser

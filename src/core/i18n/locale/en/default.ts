@@ -188,7 +188,7 @@ const defaultTranslations = {
     // Project 1 - AI Note
     aiNote: {
       title: 'AI Note',
-      description: 'An intelligent note-taking app with AI integration, built with OpenAI, Pinecone, Next.js, Shadcn UI, Clerk, and more.',
+      description: 'An intelligent note-taking app with AI integration, built with Google Generative AI, Pinecone, Next.js, Shadcn UI, Next Auth, and more.',
     },
     
     // Project 2 - Movie Browser
